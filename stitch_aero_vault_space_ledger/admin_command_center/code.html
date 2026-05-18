@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;600&amp;family=Hanken+Grotesk:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#353437",
+                        "on-secondary-container": "#b5b5b3",
+                        "on-surface-variant": "#c8c5cf",
+                        "on-tertiary-container": "#878787",
+                        "primary-fixed-dim": "#c2c2f2",
+                        "surface-variant": "#353437",
+                        "surface-dim": "#131316",
+                        "tertiary": "#c6c6c6",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "tertiary-container": "#1f1f1f",
+                        "on-primary": "#2b2d53",
+                        "surface-container": "#201f22",
+                        "surface": "#131316",
+                        "primary-fixed": "#e1e0ff",
+                        "surface-container-lowest": "#0e0e11",
+                        "on-primary-container": "#8283af",
+                        "background": "#131316",
+                        "error-container": "#93000a",
+                        "secondary-container": "#464746",
+                        "outline-variant": "#47464e",
+                        "on-surface": "#e5e1e5",
+                        "on-background": "#e5e1e5",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "inverse-primary": "#5a5b84",
+                        "surface-bright": "#3a393c",
+                        "inverse-on-surface": "#313033",
+                        "secondary": "#c7c6c4",
+                        "on-secondary": "#303130",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-tertiary": "#303030",
+                        "surface-tint": "#c2c2f2",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#e3e2e0",
+                        "on-primary-fixed": "#16173d",
+                        "secondary-fixed-dim": "#c7c6c4",
+                        "primary-container": "#1a1b41",
+                        "primary": "#c2c2f2",
+                        "outline": "#918f99",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "inverse-surface": "#e5e1e5",
+                        "on-primary-fixed-variant": "#42436b",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#2a292d",
+                        "on-secondary-fixed-variant": "#464746",
+                        "surface-container-low": "#1c1b1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "margin": "32px",
+                        "container-max": "1440px",
+                        "stack-sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "data-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .brutal-border {
+            border: 4px solid #c7c6c4;
+        }
+        .brutal-shadow {
+            box-shadow: 4px 4px 0px 0px #c7c6c4;
+        }
+        .recessed-input {
+            border-top: 2px solid #47464e;
+            border-left: 2px solid #47464e;
+            background: #0e0e11;
+        }
+        .metallic-card {
+            background: linear-gradient(135deg, #333333 0%, #000000 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex font-body-md">
+<!-- NavigationDrawer Component -->
+<aside class="fixed inset-y-0 left-0 z-50 flex flex-col gap-unit h-full w-80 border-r-4 border-secondary bg-surface-container-low">
+<div class="p-gutter flex flex-col gap-unit border-b-4 border-secondary">
+<div class="flex items-center gap-stack-md mb-stack-md">
+<div class="w-12 h-12 brutal-border bg-primary-container overflow-hidden">
+<img alt="Authorized User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8OULuN2QJx11VWtZnTlPgu2fhnm84u4UGNJcaNYN_4fZhIOcB7Yb9YmL8FYrrxRcAhslOB1jUkvyNFNHEL6MQN59y2iTFVGaKpn7un4KNL421bm5HQibJ6DFbt2QpufXQcb7I_2RcVLxDLNjuUTdMSK_mgIDec-9MY4HjuR1k4s2UAMndwZtpTVbYO1n2LP6Z-gQPWVbhpHKUfV6P9gve7-PUibw0gPi7y_-FArYpIpd3hNGIC5hqeHPVfWEx91pJ0QYA_meaZDY"/>
+</div>
+<div>
+<h2 class="text-primary font-headline-md font-bold tracking-tighter">OPERATOR_042</h2>
+<p class="text-on-surface-variant font-label-caps text-[10px]">Tier-1 Clearance</p>
+</div>
+</div>
+<div class="font-data-mono text-data-mono text-primary opacity-60">Station: LEO-01</div>
+</div>
+<nav class="flex-1 px-unit py-stack-md overflow-y-auto">
+<div class="flex flex-col gap-unit">
+<a class="flex items-center gap-stack-md px-gutter py-stack-md bg-secondary-container text-on-secondary-container font-bold border-l-4 border-primary opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-caps">Security Audit</span>
+</a>
+<a class="flex items-center gap-stack-md px-gutter py-stack-md text-on-surface hover:bg-surface-bright transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+<span class="font-label-caps">Fleet Registry</span>
+</a>
+<a class="flex items-center gap-stack-md px-gutter py-stack-md text-on-surface hover:bg-surface-bright transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+<span class="font-label-caps">Jurisdiction Map</span>
+</a>
+<a class="flex items-center gap-stack-md px-gutter py-stack-md text-on-surface hover:bg-surface-bright transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+<span class="font-label-caps">Terminal Settings</span>
+</a>
+</div>
+</nav>
+<div class="p-gutter border-t-4 border-secondary mt-auto">
+<div class="text-headline-sm font-headline-md text-primary tracking-tighter uppercase font-bold">AERO-VAULT</div>
+<p class="font-data-mono text-[10px] text-on-surface-variant mt-unit">v4.0.28-STABLE</p>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-80 flex-1 flex flex-col min-h-screen">
+<!-- TopAppBar Component -->
+<header class="sticky top-0 z-40 flex justify-between items-center w-full px-gutter h-16 bg-surface border-b-4 border-secondary">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary" data-icon="shield_lock">shield_lock</span>
+<h1 class="text-headline-sm font-headline-sm font-bold tracking-tighter text-primary uppercase">COMMAND CENTER</h1>
+</div>
+<div class="flex items-center gap-stack-lg">
+<div class="flex gap-stack-md">
+<button class="font-label-caps text-primary font-bold active:translate-y-0.5 transition-transform">SYSTEM_MONITOR</button>
+<button class="font-label-caps text-on-surface-variant hover:bg-secondary-container px-2 py-1 transition-all">NODES</button>
+<button class="font-label-caps text-on-surface-variant hover:bg-secondary-container px-2 py-1 transition-all">NETWORK</button>
+</div>
+<div class="w-10 h-10 brutal-border bg-surface-container-highest">
+<img alt="Security Officer Profile" class="w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiTHUj2aDuuG-34ImttgM-rKjhS1hQfDk7FCfQtV_74ia2Xm-a0t2BXkpeeq1hW7qW4AzhR0cTzi1oeWidE_QlFfE17Ecl8x2UvYGwQaZGCGok9cqOokACdps8fbKC3r4QNXgF2TYw3AtNy-MsCxpE4Qia0F66l6ZiBng8b-Q4aIcy2PqY7IGFe3Tkq2ahytF7GfHvgNRuuitt63IyIdiNRehsgYGIMpSL3JsV_2DtGB5nd3l9FvGBnAd8zYRDjBUIzvWY_CR319k"/>
+</div>
+</div>
+</header>
+<div class="p-margin flex flex-col gap-stack-lg container-max mx-auto w-full">
+<!-- Key Metrics Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Total Assets -->
+<div class="metallic-card brutal-border brutal-shadow p-stack-lg flex flex-col gap-stack-sm relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-on-surface-variant text-xs opacity-70">TOTAL ASSETS</span>
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div class="font-headline-md text-primary font-bold mt-stack-sm">
+                        $42.8M<span class="text-label-caps text-on-surface-variant ml-2">USD</span>
+</div>
+<div class="w-full h-1 bg-surface-container mt-stack-md relative">
+<div class="absolute top-0 left-0 h-full bg-primary" style="width: 78%;"></div>
+</div>
+<p class="font-data-mono text-[10px] text-on-surface-variant">+2.4% FROM LAST CYCLE</p>
+</div>
+<!-- System Uptime -->
+<div class="brutal-border brutal-shadow bg-surface-container-low p-stack-lg flex flex-col gap-stack-sm border-primary">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-on-surface-variant text-xs opacity-70">SYSTEM UPTIME</span>
+<span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
+</div>
+<div class="font-headline-md text-on-surface font-bold mt-stack-sm">
+                        99.998%
+                    </div>
+<div class="flex items-center gap-stack-sm mt-stack-md">
+<div class="px-2 py-1 brutal-border border-2 border-primary bg-primary-container font-data-mono text-[10px] text-primary">STABLE</div>
+<span class="font-data-mono text-[10px] text-on-surface-variant">NODE_01 ... NODE_64 ACTIVE</span>
+</div>
+</div>
+<!-- Pending Approvals -->
+<div class="brutal-border brutal-shadow bg-surface-container-low p-stack-lg flex flex-col gap-stack-sm border-error">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-on-surface-variant text-xs opacity-70">PENDING APPROVALS</span>
+<span class="material-symbols-outlined text-error" data-icon="priority_high">priority_high</span>
+</div>
+<div class="font-headline-md text-error font-bold mt-stack-sm">
+                        12
+                    </div>
+<div class="mt-stack-md">
+<button class="w-full bg-error-container text-on-error-container font-label-caps py-2 brutal-border border-2 border-error hover:invert transition-all">
+                            REVIEW_QUEUE
+                        </button>
+</div>
+</div>
+</section>
+<!-- Main Control Sections -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- User Permission Management Table -->
+<section class="lg:col-span-2 brutal-border bg-surface-container-low overflow-hidden">
+<div class="p-gutter border-b-4 border-secondary flex justify-between items-center bg-surface-container">
+<h3 class="font-headline-sm text-primary uppercase">PERMISSION_REGISTRY</h3>
+<div class="flex gap-stack-sm">
+<span class="recessed-input px-3 py-1 flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-xs" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-data-mono text-xs w-40 text-primary" placeholder="FILTER_UUID..." type="text"/>
+</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-data-mono">
+<thead class="bg-surface-variant border-b-2 border-secondary">
+<tr>
+<th class="p-stack-md font-label-caps text-secondary">OPERATOR_ID</th>
+<th class="p-stack-md font-label-caps text-secondary">CLEARANCE_LVL</th>
+<th class="p-stack-md font-label-caps text-secondary">LAST_ACCESS</th>
+<th class="p-stack-md font-label-caps text-secondary">STATUS</th>
+<th class="p-stack-md font-label-caps text-secondary text-right">ACTION</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-secondary-container">
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="p-stack-md text-on-surface">USR-9921-X</td>
+<td class="p-stack-md">
+<span class="px-2 py-0.5 brutal-border border-2 border-secondary text-[10px] bg-secondary-container">LEVEL_4</span>
+</td>
+<td class="p-stack-md text-on-surface-variant">2023-11-24:08:12</td>
+<td class="p-stack-md">
+<div class="flex items-center gap-stack-sm">
+<div class="w-2 h-2 bg-primary"></div>
+<span class="text-[10px] text-primary">ACTIVE</span>
+</div>
+</td>
+<td class="p-stack-md text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-bright transition-colors">
+<td class="p-stack-md text-on-surface">USR-1044-B</td>
+<td class="p-stack-md">
+<span class="px-2 py-0.5 brutal-border border-2 border-primary text-[10px] bg-primary-container">ADMIN</span>
+</td>
+<td class="p-stack-md text-on-surface-variant">2023-11-24:14:45</td>
+<td class="p-stack-md">
+<div class="flex items-center gap-stack-sm">
+<div class="w-2 h-2 bg-primary"></div>
+<span class="text-[10px] text-primary">ACTIVE</span>
+</div>
+</td>
+<td class="p-stack-md text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="p-stack-md text-on-surface">USR-4432-Z</td>
+<td class="p-stack-md">
+<span class="px-2 py-0.5 brutal-border border-2 border-secondary text-[10px] bg-secondary-container">LEVEL_1</span>
+</td>
+<td class="p-stack-md text-on-surface-variant">2023-11-22:19:00</td>
+<td class="p-stack-md">
+<div class="flex items-center gap-stack-sm">
+<div class="w-2 h-2 bg-secondary"></div>
+<span class="text-[10px] text-on-surface-variant opacity-50">DORMANT</span>
+</div>
+</td>
+<td class="p-stack-md text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest hover:bg-surface-bright transition-colors">
+<td class="p-stack-md text-on-surface">USR-2291-K</td>
+<td class="p-stack-md">
+<span class="px-2 py-0.5 brutal-border border-2 border-error text-[10px] bg-error-container">REVOKED</span>
+</td>
+<td class="p-stack-md text-on-surface-variant">NULL</td>
+<td class="p-stack-md">
+<div class="flex items-center gap-stack-sm">
+<div class="w-2 h-2 bg-error"></div>
+<span class="text-[10px] text-error">LOCKED</span>
+</div>
+</td>
+<td class="p-stack-md text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- System-wide Audit Trail -->
+<section class="brutal-border bg-surface-container-low flex flex-col overflow-hidden">
+<div class="p-gutter border-b-4 border-secondary bg-surface-container">
+<h3 class="font-headline-sm text-primary uppercase">AUDIT_TRAIL</h3>
+</div>
+<div class="flex-1 p-stack-md overflow-y-auto space-y-stack-md max-h-[600px]">
+<!-- Audit Log Items -->
+<div class="p-stack-md bg-surface-container-lowest brutal-border border-2 flex flex-col gap-unit relative">
+<div class="flex justify-between">
+<span class="font-label-caps text-primary text-[10px]">AUTH_SUCCESS</span>
+<span class="font-data-mono text-on-surface-variant text-[10px]">14:45:01</span>
+</div>
+<p class="text-on-surface font-data-mono text-xs">Operator USR-1044-B entered secure zone DELTA-9.</p>
+<div class="absolute right-2 bottom-2">
+<span class="material-symbols-outlined text-primary opacity-30 text-lg" data-icon="verified">verified</span>
+</div>
+</div>
+<div class="p-stack-md bg-surface-container-lowest brutal-border border-2 border-error flex flex-col gap-unit">
+<div class="flex justify-between">
+<span class="font-label-caps text-error text-[10px]">REJECTED_TX</span>
+<span class="font-data-mono text-on-surface-variant text-[10px]">14:42:15</span>
+</div>
+<p class="text-on-surface font-data-mono text-xs">Unauthorized withdrawal attempt: 5,000 ARV from Vault #882.</p>
+</div>
+<div class="p-stack-md bg-surface-container-lowest brutal-border border-2 flex flex-col gap-unit">
+<div class="flex justify-between">
+<span class="font-label-caps text-secondary text-[10px]">SYSTEM_UPDATE</span>
+<span class="font-data-mono text-on-surface-variant text-[10px]">14:00:00</span>
+</div>
+<p class="text-on-surface font-data-mono text-xs">Routine integrity scan complete. 0 vulnerabilities found.</p>
+</div>
+<div class="p-stack-md bg-surface-container-lowest brutal-border border-2 flex flex-col gap-unit">
+<div class="flex justify-between">
+<span class="font-label-caps text-primary text-[10px]">ENCRYPTION_ROTATION</span>
+<span class="font-data-mono text-on-surface-variant text-[10px]">13:12:04</span>
+</div>
+<p class="text-on-surface font-data-mono text-xs">Vault Master Keys rotated for all Tier-1 orbital storage units.</p>
+</div>
+<div class="p-stack-md bg-surface-container-lowest brutal-border border-2 flex flex-col gap-unit">
+<div class="flex justify-between">
+<span class="font-label-caps text-on-surface-variant text-[10px]">USER_LOGIN</span>
+<span class="font-data-mono text-on-surface-variant text-[10px]">12:55:50</span>
+</div>
+<p class="text-on-surface font-data-mono text-xs">User USR-9921-X session established (IP: 192.168.1.104).</p>
+</div>
+</div>
+<div class="p-stack-md border-t-2 border-secondary-container">
+<button class="w-full text-center font-label-caps text-on-surface-variant text-[10px] hover:text-primary">VIEW_FULL_LOG_MANIFEST</button>
+</div>
+</section>
+</div>
+<!-- Global Security Map (Visual Placeholder) -->
+<section class="brutal-border brutal-shadow metallic-card h-80 relative overflow-hidden flex flex-col">
+<div class="absolute inset-0 opacity-40">
+<img class="w-full h-full object-cover" data-alt="A technical high-contrast world map rendered with glowing cyan data points and circuit-like connections over a deep black background. The visual style is inspired by military satellite telemetry and global logistics monitoring systems. Sharp geometric lines intersect the map representing secure aerospace data channels. The overall mood is serious and high-tech, fitting a hardened security vault aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0jkSjhqu_BdpShStpwndpkTkvMDeR7RtlhAFBMYSl6FVALA_Ny0hmV7-m6W4gDCGVTxqvQYOgqEMzx0vY8s1HjdixldWMlItv3V9O3n5s0Kkulqde33FKoExDXMVgm0Nx5YR7qlgTqb4pna-K7ZEufPRQREVnvvgrVKn0031ufWrBeyCLymKesHSH90ssWtyRglk60Olaq7GRYgsgnr6VQPPqcMM75-hZUf6lT6ygX04JsYh_sJhV3_8W0mV3WHGZ-LeVvUzHkxM"/>
+</div>
+<div class="relative z-10 p-gutter bg-background/80 self-start mt-gutter ml-gutter brutal-border border-2">
+<h4 class="font-headline-sm text-primary">REAL-TIME_GEOSYNC</h4>
+<p class="font-data-mono text-xs text-on-surface-variant">Active nodes: 142 Global / 18 Orbital</p>
+</div>
+<div class="absolute bottom-gutter right-gutter z-10 flex gap-stack-md">
+<div class="p-stack-md brutal-border border-2 bg-surface-container-low/90 flex items-center gap-stack-md">
+<div class="w-2 h-2 bg-primary animate-pulse"></div>
+<span class="font-label-caps text-[10px]">ORBITAL_LINK_UP</span>
+</div>
+<div class="p-stack-md brutal-border border-2 bg-surface-container-low/90 flex items-center gap-stack-md">
+<div class="w-2 h-2 bg-primary"></div>
+<span class="font-label-caps text-[10px]">DEEP_STORAGE_STABLE</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer / Technical Specs -->
+<footer class="mt-auto p-gutter border-t-4 border-secondary flex justify-between items-center bg-surface-container-lowest">
+<div class="flex gap-stack-lg items-center">
+<div class="font-data-mono text-[10px] text-on-surface-variant">SYSTEM_LATENCY: 14MS</div>
+<div class="font-data-mono text-[10px] text-on-surface-variant">ENCRYPTION: AES-XTS-512</div>
+<div class="font-data-mono text-[10px] text-on-surface-variant">PROTOCOL: AERO-SEC-v9</div>
+</div>
+<div class="font-label-caps text-xs text-primary border-l-2 border-secondary pl-stack-md">
+                SECURED BY AEGIS-QUANTUM
+            </div>
+</footer>
+</main>
+<!-- Contextual FAB (Hidden on most screens, but applicable for Dashboard) -->
+<button class="fixed bottom-margin right-margin w-16 h-16 brutal-border brutal-shadow bg-primary text-on-primary flex items-center justify-center hover:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add_moderator" style="font-variation-settings: 'FILL' 1;">add_moderator</span>
+</button>
+</body></html>

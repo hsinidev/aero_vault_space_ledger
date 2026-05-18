@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AERO-VAULT | Legal Jurisdiction Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Inter:wght@400;600&amp;family=Hanken+Grotesk:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#42436b",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#b5b5b3",
+                        "primary-fixed-dim": "#c2c2f2",
+                        "on-background": "#e5e1e5",
+                        "outline-variant": "#47464e",
+                        "surface-container": "#201f22",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "surface-container-low": "#1c1b1e",
+                        "primary-fixed": "#e1e0ff",
+                        "surface-variant": "#353437",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "on-surface": "#e5e1e5",
+                        "surface": "#131316",
+                        "surface-container-lowest": "#0e0e11",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#353437",
+                        "secondary-fixed-dim": "#c7c6c4",
+                        "on-tertiary-container": "#878787",
+                        "inverse-on-surface": "#313033",
+                        "on-primary-fixed": "#16173d",
+                        "on-tertiary": "#303030",
+                        "secondary": "#c7c6c4",
+                        "surface-tint": "#c2c2f2",
+                        "background": "#131316",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-primary": "#2b2d53",
+                        "inverse-surface": "#e5e1e5",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "outline": "#918f99",
+                        "on-surface-variant": "#c8c5cf",
+                        "error-container": "#93000a",
+                        "primary-container": "#1a1b41",
+                        "surface-container-high": "#2a292d",
+                        "on-secondary": "#303130",
+                        "secondary-fixed": "#e3e2e0",
+                        "on-secondary-fixed-variant": "#464746",
+                        "tertiary": "#c6c6c6",
+                        "on-primary-container": "#8283af",
+                        "tertiary-container": "#1f1f1f",
+                        "surface-bright": "#3a393c",
+                        "inverse-primary": "#5a5b84",
+                        "primary": "#c2c2f2",
+                        "secondary-container": "#464746",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-dim": "#131316"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "container-max": "1440px",
+                        "margin": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hardened-card-bg {
+            background: linear-gradient(135deg, #1a1b41 0%, #131316 100%);
+        }
+        .recessed-input {
+            box-shadow: inset 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary border-b-4 border-secondary-container dark:border-secondary flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-50">
+<div class="flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-primary" data-icon="shield_lock">shield_lock</span>
+<h1 class="text-headline-sm font-headline-sm font-bold tracking-tighter text-primary uppercase">AERO-VAULT</h1>
+</div>
+<div class="flex items-center gap-gutter">
+<nav class="hidden md:flex gap-gutter">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:bg-secondary-container p-2 transition-colors" href="#">VAULT</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:bg-secondary-container p-2 transition-colors" href="#">LOGS</a>
+<a class="text-primary font-bold font-label-caps text-label-caps border-b-2 border-primary translate-y-0.5 transition-transform p-2" href="#">LEGAL</a>
+</nav>
+<div class="w-10 h-10 rounded-full border-2 border-secondary overflow-hidden">
+<img alt="Security Officer Profile" class="w-full h-full object-cover" data-alt="A high-contrast, professional portrait of a security officer in a futuristic tactical uniform. The lighting is dramatic and cool-toned, with deep indigo shadows and sharp platinum highlights. The setting is a sterile, high-tech command center with blurred holographic displays in the background, maintaining an institutional and authoritative atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi4hDKn3RZVH7jQjrrLVxJbfIzroORc3Gz7FN5FOdtU2rxL_TlgAuy97d7RjexNi_ZXc1MpstiQiDPYZgJ9Q65F94oIwvpopzDvMooauDjf9ISwbdSWU5QfluE5bINwJ-dar7EFjMyKtF8keQObA63BHXYE90eP77MxUmEkUS6nas-EGWxDci5W_eCEPWmhdrcvp-Vf-dNhy2RNSyTUEIWFHDZZPWdfeD0PZw3bGzPgxa8vR_dKZVkDT2VQ668_BpMyTD78tZjxVU"/>
+</div>
+</div>
+</header>
+<div class="flex h-[calc(100vh-64px)]">
+<!-- NavigationDrawer (Sidebar) -->
+<aside class="hidden lg:flex flex-col gap-unit fixed inset-y-0 left-0 z-50 w-80 bg-surface-container-low dark:bg-surface-container-low border-r-4 border-secondary mt-16 pb-20">
+<div class="p-gutter border-b-4 border-secondary">
+<div class="flex items-center gap-stack-sm mb-stack-sm">
+<div class="w-12 h-12 border-2 border-primary flex items-center justify-center bg-primary-container">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-sm text-primary">OPERATOR_042</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Tier-1 Clearance</div>
+</div>
+</div>
+<div class="font-data-mono text-data-mono text-secondary">Station: LEO-01</div>
+</div>
+<nav class="flex flex-col p-unit">
+<a class="flex items-center gap-stack-sm p-stack-md text-on-surface hover:bg-surface-bright transition-colors font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Security Audit</span>
+</a>
+<a class="flex items-center gap-stack-sm p-stack-md text-on-surface hover:bg-surface-bright transition-colors font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+<span>Fleet Registry</span>
+</a>
+<a class="flex items-center gap-stack-sm p-stack-md bg-secondary-container text-on-secondary-container font-bold border-l-4 border-primary opacity-80 font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+<span>Jurisdiction Map</span>
+</a>
+<a class="flex items-center gap-stack-sm p-stack-md text-on-surface hover:bg-surface-bright transition-colors font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+<span>Terminal Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-80 p-gutter overflow-y-auto pb-32">
+<div class="max-w-container-max mx-auto">
+<!-- Header & Controls -->
+<div class="flex flex-col md:flex-row justify-between items-end gap-gutter mb-stack-lg border-l-4 border-primary pl-gutter">
+<div>
+<h2 class="font-display-lg text-display-lg uppercase leading-none mb-unit">Legal Hub</h2>
+<p class="font-data-mono text-data-mono text-on-surface-variant uppercase">Registry Status: ACTIVE // ALL SECTORS NOMINAL</p>
+</div>
+<div class="flex gap-stack-sm">
+<button class="bg-primary-container text-white px-stack-md py-stack-sm border-2 border-secondary font-label-caps text-label-caps hover:bg-primary transition-colors flex items-center gap-unit">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+                            SYNC REGISTRY
+                        </button>
+<button class="bg-black text-secondary px-stack-md py-stack-sm border-4 border-secondary font-label-caps text-label-caps hover:bg-secondary hover:text-black transition-all flex items-center gap-unit">
+<span class="material-symbols-outlined text-[18px]" data-icon="file_download">file_download</span>
+                            EXPORT LOGS
+                        </button>
+</div>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Jurisdiction Map Section (Full Width) -->
+<div class="md:col-span-12 hardened-card-bg border-4 border-secondary p-gutter relative overflow-hidden group">
+<div class="flex justify-between items-center mb-stack-md relative z-10">
+<div class="flex items-center gap-unit">
+<span class="material-symbols-outlined text-primary" data-icon="map">map</span>
+<span class="font-label-caps text-label-caps text-primary">JURISDICTION_MAP_V4.2</span>
+</div>
+<div class="flex gap-unit">
+<span class="px-2 py-1 bg-surface-container text-on-surface border border-outline font-data-mono text-[10px]">LEO-ENABLED</span>
+<span class="px-2 py-1 bg-surface-container text-on-surface border border-outline font-data-mono text-[10px]">MARTIAN-ENABLED</span>
+</div>
+</div>
+<div class="w-full h-80 bg-surface-container-lowest border-2 border-outline-variant relative overflow-hidden">
+<img alt="Space Jurisdiction Map" class="w-full h-full object-cover opacity-50 grayscale mix-blend-overlay" data-alt="A sophisticated orbital data map showing the Earth, Mars, and the asteroid belt with glowing technical overlays. The map is rendered in a cold indigo and platinum silver palette, featuring precise vector lines, coordinate grids, and color-coded zones for different legal jurisdictions. The aesthetic is purely industrial and high-tech, like a secure tactical command display." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOxpHOTVzykk7bTbRQH66FM9C2xJVSG6x4e4mvKO0UcX8j_vyikqxzT35LNkYsPFB4Sosy8jWRvYqfA9zfXH7Bk__xoBaIxDmRUc44PxM5_oPQbRfEBU9mUrAgGkC8o-2OiJtHaqnxhsTkAWqGhPWpu5UXVA5FXByQB2cgvor_tMJ3dmrV0P9ziv4bvTpgls93fdxzrTYKU8_aH4nJIHWSNGNRbK4F9XK71xKqLDwGUqGbUNpJETXsIlXRQylvfSK3WWjdz2d8sYI"/>
+<!-- Overlay UI elements -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-full h-px bg-primary/20 absolute"></div>
+<div class="h-full w-px bg-primary/20 absolute"></div>
+<div class="border border-primary/40 w-32 h-32 rounded-full flex items-center justify-center">
+<div class="w-16 h-16 border-2 border-primary border-dashed rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- LEO Status Card -->
+<div class="md:col-span-4 hardened-card-bg border-4 border-secondary p-stack-md">
+<div class="flex justify-between items-start mb-stack-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">LEO Sector</h3>
+<div class="px-2 py-1 border border-[#00ff9d] text-[#00ff9d] font-data-mono text-[10px]">VERIFIED</div>
+</div>
+<div class="space-y-stack-sm mb-stack-md">
+<div class="flex justify-between items-center border-b border-surface-variant pb-unit">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Active Treaties</span>
+<span class="font-data-mono text-data-mono">14</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-variant pb-unit">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Compliance Index</span>
+<span class="font-data-mono text-data-mono">99.2%</span>
+</div>
+</div>
+<button class="w-full py-stack-sm border-2 border-secondary font-label-caps text-label-caps hover:bg-secondary hover:text-black transition-all">VIEW DOCUMENTS</button>
+</div>
+<!-- Martian Status Card -->
+<div class="md:col-span-4 hardened-card-bg border-4 border-secondary p-stack-md">
+<div class="flex justify-between items-start mb-stack-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Martian Hub</h3>
+<div class="px-2 py-1 border border-primary text-primary font-data-mono text-[10px]">PENDING_AUDIT</div>
+</div>
+<div class="space-y-stack-sm mb-stack-md">
+<div class="flex justify-between items-center border-b border-surface-variant pb-unit">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Local Statutes</span>
+<span class="font-data-mono text-data-mono">08</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-variant pb-unit">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Conflict Delta</span>
+<span class="font-data-mono text-data-mono text-error">+2.4%</span>
+</div>
+</div>
+<button class="w-full py-stack-sm border-2 border-secondary font-label-caps text-label-caps hover:bg-secondary hover:text-black transition-all">RESOLVE DISPUTE</button>
+</div>
+<!-- Belt Status Card -->
+<div class="md:col-span-4 hardened-card-bg border-4 border-secondary p-stack-md">
+<div class="flex justify-between items-start mb-stack-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Belt Coalition</h3>
+<div class="px-2 py-1 border border-secondary text-secondary font-data-mono text-[10px]">IMMUTABLE</div>
+</div>
+<div class="space-y-stack-sm mb-stack-md">
+<div class="flex justify-between items-center border-b border-surface-variant pb-unit">
+<span class="font-label-caps text-label-caps text-on-surface-variant">DAO Protocols</span>
+<span class="font-data-mono text-data-mono">256</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-variant pb-unit">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Network Sync</span>
+<span class="font-data-mono text-data-mono">NOMINAL</span>
+</div>
+</div>
+<button class="w-full py-stack-sm border-2 border-secondary font-label-caps text-label-caps hover:bg-secondary hover:text-black transition-all">DECRYPT PROTOCOLS</button>
+</div>
+<!-- Transaction Ledger / Audit Log Section -->
+<div class="md:col-span-12 border-4 border-secondary overflow-hidden">
+<div class="bg-surface-container-high p-stack-sm border-b-2 border-secondary flex justify-between items-center px-gutter">
+<span class="font-label-caps text-label-caps font-bold">REGISTRY_AUDIT_LOG_STREAM</span>
+<span class="font-data-mono text-data-mono text-[12px] animate-pulse">● LIVE_FEED</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-lowest border-b-2 border-secondary font-label-caps text-label-caps uppercase">
+<tr>
+<th class="p-gutter border-r border-surface-variant">Timestamp</th>
+<th class="p-gutter border-r border-surface-variant">Jurisdiction</th>
+<th class="p-gutter border-r border-surface-variant">Event Type</th>
+<th class="p-gutter">Hash Index</th>
+</tr>
+</thead>
+<tbody class="font-data-mono text-data-mono">
+<tr class="bg-surface border-b border-surface-variant hover:bg-primary-container transition-colors">
+<td class="p-gutter border-r border-surface-variant">2144-09-12 04:22</td>
+<td class="p-gutter border-r border-surface-variant">LEO-GRID-7</td>
+<td class="p-gutter border-r border-surface-variant text-[#00ff9d]">POLICY_VERIFIED</td>
+<td class="p-gutter">0x889...F2E1</td>
+</tr>
+<tr class="bg-surface-container-low border-b border-surface-variant hover:bg-primary-container transition-colors">
+<td class="p-gutter border-r border-surface-variant">2144-09-12 04:18</td>
+<td class="p-gutter border-r border-surface-variant">MARS-V02</td>
+<td class="p-gutter border-r border-surface-variant text-primary">AUDIT_INITIATED</td>
+<td class="p-gutter">0x212...B094</td>
+</tr>
+<tr class="bg-surface border-b border-surface-variant hover:bg-primary-container transition-colors">
+<td class="p-gutter border-r border-surface-variant">2144-09-12 04:15</td>
+<td class="p-gutter border-r border-surface-variant">BELT-C4</td>
+<td class="p-gutter border-r border-surface-variant text-secondary">IMMUTABLE_COMMIT</td>
+<td class="p-gutter">0x990...E882</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Visible on Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-surface border-t-4 border-secondary px-gutter">
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:bg-surface-variant p-2 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-caps text-label-caps uppercase">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:bg-surface-variant p-2 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-label-caps text-label-caps uppercase">Logs</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container border-2 border-primary px-2 py-1 scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-label-caps text-label-caps uppercase">Legal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:bg-surface-variant p-2 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+<span class="font-label-caps text-label-caps uppercase">Assets</span>
+</a>
+</nav>
+</body></html>

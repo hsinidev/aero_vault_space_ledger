@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#353437",
+                    "on-secondary-container": "#b5b5b3",
+                    "on-surface-variant": "#c8c5cf",
+                    "on-tertiary-container": "#878787",
+                    "primary-fixed-dim": "#c2c2f2",
+                    "surface-variant": "#353437",
+                    "surface-dim": "#131316",
+                    "tertiary": "#c6c6c6",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "tertiary-container": "#1f1f1f",
+                    "on-primary": "#2b2d53",
+                    "surface-container": "#201f22",
+                    "surface": "#131316",
+                    "primary-fixed": "#e1e0ff",
+                    "surface-container-lowest": "#0e0e11",
+                    "on-primary-container": "#8283af",
+                    "background": "#131316",
+                    "error-container": "#93000a",
+                    "secondary-container": "#464746",
+                    "outline-variant": "#47464e",
+                    "on-surface": "#e5e1e5",
+                    "on-background": "#e5e1e5",
+                    "on-secondary-fixed": "#1b1c1b",
+                    "inverse-primary": "#5a5b84",
+                    "surface-bright": "#3a393c",
+                    "inverse-on-surface": "#313033",
+                    "secondary": "#c7c6c4",
+                    "on-secondary": "#303130",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#e2e2e2",
+                    "on-tertiary": "#303030",
+                    "surface-tint": "#c2c2f2",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#e3e2e0",
+                    "on-primary-fixed": "#16173d",
+                    "secondary-fixed-dim": "#c7c6c4",
+                    "primary-container": "#1a1b41",
+                    "primary": "#c2c2f2",
+                    "outline": "#918f99",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "on-tertiary-fixed": "#1b1b1b",
+                    "inverse-surface": "#e5e1e5",
+                    "on-primary-fixed-variant": "#42436b",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-high": "#2a292d",
+                    "on-secondary-fixed-variant": "#464746",
+                    "surface-container-low": "#1c1b1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "margin": "32px",
+                    "container-max": "1440px",
+                    "stack-sm": "8px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-caps": ["JetBrains Mono"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "data-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #c7c6c4;
+        }
+        .hard-shadow-active {
+            box-shadow: 2px 2px 0px 0px #c7c6c4;
+            transform: translate(2px, 2px);
+        }
+        .metallic-gradient {
+            background: linear-gradient(135deg, #333333 0%, #000000 100%);
+        }
+        .inner-stamped {
+            box-shadow: inset 2px 2px 0px 0px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface border-b-4 border-secondary flex justify-between items-center w-full px-gutter h-16 fixed top-0 z-50">
+<div class="flex items-center gap-unit">
+<span class="material-symbols-outlined text-primary" data-icon="shield_lock">shield_lock</span>
+<h1 class="text-headline-sm font-headline-sm font-bold tracking-tighter text-primary uppercase">AERO-VAULT</h1>
+</div>
+<div class="hidden md:flex gap-margin">
+<nav class="flex items-center gap-stack-lg">
+<a class="text-primary font-bold font-label-caps hover:bg-secondary-container px-2 py-1 transition-transform translate-y-0.5" href="#">Vault</a>
+<a class="text-on-surface-variant font-label-caps hover:bg-secondary-container px-2 py-1" href="#">Logs</a>
+<a class="text-on-surface-variant font-label-caps hover:bg-secondary-container px-2 py-1" href="#">Scan</a>
+<a class="text-on-surface-variant font-label-caps hover:bg-secondary-container px-2 py-1" href="#">Legal</a>
+<a class="text-on-surface-variant font-label-caps hover:bg-secondary-container px-2 py-1" href="#">Assets</a>
+</nav>
+</div>
+<div class="flex items-center gap-stack-sm">
+<div class="text-right hidden sm:block">
+<p class="font-data-mono text-data-mono text-primary uppercase">OPERATOR_042</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant">SEC-LEVEL: TIER-1</p>
+</div>
+<div class="w-10 h-10 border-2 border-secondary overflow-hidden">
+<img alt="Security Officer Profile" class="w-full h-full object-cover" data-alt="A close-up portrait of a stern aerospace security officer with sharp features and a clean-shaven face. The lighting is dramatic and technical, using deep indigo and platinum tones to match a high-security vault aesthetic. He wears a dark technical uniform with subtle metallic accents. The background is a soft-focus industrial interior with glowing blue data screens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj4p8L9EgDppNx-zcbefRSfjmrTpme7qzd7Y7JQaEkrX283zNTNyJQqu1unXqUdrJh05pX8vTBWCjIcs-S-1bgb0SZc3uIFLc5l-KKqkmn9fDNBXWwB_y74YuDE__ndFmnqthK8flsQq5jrLV_NgdyJEVX0bh7FKTyZfWOWQX9kN-gTZwcRoJM-aI6_mmOdZftyJtQKFC3wzzMCzs1-eswlnMtfp3KU5YBGORRSLtjk7za-E1B5NWiXugMhWv19DS5ryLHR8G2tNo"/>
+</div>
+</div>
+</header>
+<div class="flex pt-16 min-h-screen">
+<!-- NavigationDrawer (Sidebar) -->
+<aside class="fixed inset-y-0 left-0 z-40 flex flex-col gap-unit h-full w-80 border-r-4 border-secondary bg-surface-container-low dark:bg-surface-container-low mt-16">
+<div class="p-gutter border-b-4 border-secondary-container">
+<div class="flex items-center gap-stack-sm mb-stack-md">
+<span class="material-symbols-outlined text-primary" data-icon="fingerprint" style="font-variation-settings: 'FILL' 1;">fingerprint</span>
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Biometric Sync Active</span>
+</div>
+<div class="bg-black border-2 border-secondary p-stack-sm inner-stamped">
+<p class="font-data-mono text-[10px] text-secondary opacity-50 mb-1">STATION_LOC</p>
+<p class="font-data-mono text-data-mono text-on-surface">LEO-TERMINAL-01 // ORBIT_SEC</p>
+</div>
+</div>
+<nav class="flex-1 px-stack-sm py-gutter space-y-unit">
+<p class="font-label-caps text-[10px] text-on-surface-variant px-4 mb-2 uppercase opacity-50">Filter Asset Classes</p>
+<a class="flex items-center gap-stack-md px-4 py-3 bg-secondary-container text-on-secondary-container font-bold border-l-4 border-primary opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+<span class="font-label-caps text-label-caps">Propulsion Systems</span>
+</a>
+<a class="flex items-center gap-stack-md px-4 py-3 text-on-surface hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+<span class="font-label-caps text-label-caps">Mineral Rights</span>
+</a>
+<a class="flex items-center gap-stack-md px-4 py-3 text-on-surface hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+<span class="font-label-caps text-label-caps">Orbital Real Estate</span>
+</a>
+<div class="pt-margin">
+<p class="font-label-caps text-[10px] text-on-surface-variant px-4 mb-2 uppercase opacity-50">System Operations</p>
+<a class="flex items-center gap-stack-md px-4 py-3 text-on-surface hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-caps text-label-caps">Security Audit</span>
+</a>
+<a class="flex items-center gap-stack-md px-4 py-3 text-on-surface hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+<span class="font-label-caps text-label-caps">Terminal Settings</span>
+</a>
+</div>
+</nav>
+<div class="p-gutter border-t-4 border-secondary bg-primary-container">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-on-primary-container">VAULT_STATUS</span>
+<span class="bg-error-container text-on-error-container px-2 py-0.5 font-data-mono text-[10px] font-bold">LOCKED</span>
+</div>
+<button class="w-full bg-primary text-on-primary py-3 font-label-caps text-label-caps border-2 border-white hover:bg-white hover:text-primary transition-all uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="lock">lock</span>
+                    Authorize Access
+                </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-80 flex-1 p-gutter bg-surface">
+<!-- Header Section -->
+<div class="mb-stack-lg flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-unit">DIGITAL_ASSETS</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">Manage hardened titles for orbital infrastructure and deep-space mining concessions. All records are cryptographically verified and legally immutable.</p>
+</div>
+<div class="flex gap-stack-sm">
+<button class="bg-black border-4 border-secondary text-secondary px-6 py-2 font-label-caps text-label-caps hover:bg-secondary hover:text-black transition-all">EXCHANGE_LOGS</button>
+<button class="bg-primary text-on-primary border-2 border-white px-6 py-2 font-label-caps text-label-caps hover:invert transition-all">NEW_REGISTRY</button>
+</div>
+</div>
+<!-- Bento Grid Assets -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Large Card: Asteroid Rights -->
+<div class="col-span-8 bg-surface-container border-4 border-secondary hard-shadow metallic-gradient relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-gutter z-10">
+<span class="bg-primary-container border-2 border-primary text-on-primary-container px-3 py-1 font-data-mono text-data-mono">CONCESSION: 449-B</span>
+</div>
+<div class="h-64 overflow-hidden">
+<img alt="Asteroid Mining Site" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="A high-contrast cinematic shot of a dark, jagged asteroid surface rich in metallic veins, set against the pitch-black void of space. Harvester drones with glowing blue lights are docked to its surface. The image uses a technical, cold palette of deep indigo and silver, emphasizing the brutalist and industrial aesthetic of off-planet mining." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdD1RWaq62xsaUMAMqiEFlUXQNneQCsi_AANCAAjjyDcgLiilWIUp20LzgkqIzYvelQVDWHIeUwHajG7A13r5VXQdhSTxR22R4GNeqSL0BET1yMP7rdvSVfoSwDzUCUaVHDlNqFKp8OnqLmwT9VnSxFcD_weBTZha5Nn3jfXN4SwCxsHrV6o5mZwRdmagvyMPIYakGg96VCJRxyxBSrHLEhr7UllczKmueboLDqXMm03ugJObRn_joE7wbxJMq5-6AqO5gZChIJTE"/>
+</div>
+<div class="p-gutter">
+<div class="flex justify-between items-start mb-stack-md">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-caps text-label-caps text-primary">MINERAL_RIGHTS</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface uppercase">Psyche-Sector Delta-9</h3>
+</div>
+<div class="text-right">
+<p class="font-data-mono text-data-mono text-on-surface">VALUATION</p>
+<p class="font-headline-sm text-headline-sm text-primary">1.42B Credits</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-stack-md border-t-2 border-secondary-container pt-stack-md">
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase mb-1">Purity Grade</p>
+<p class="font-data-mono text-data-mono text-on-surface">98.4% Nickel-Iron</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase mb-1">Expiry</p>
+<p class="font-data-mono text-data-mono text-on-surface">CY 2145-Q4</p>
+</div>
+<div class="flex justify-end items-center">
+<div class="flex items-center gap-1 border-2 border-primary px-3 py-1">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] text-primary">VERIFIED</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Card -->
+<div class="col-span-4 bg-primary-container border-4 border-secondary p-gutter flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-stack-md" data-icon="analytics">analytics</span>
+<h4 class="font-headline-sm text-headline-sm text-on-primary-container mb-stack-sm">Network Capacity</h4>
+<p class="font-body-md text-on-primary-container opacity-70 mb-stack-md">Total vaulted value across all jurisdictions under your operator ID.</p>
+<div class="space-y-stack-md">
+<div class="bg-black/30 p-stack-sm border-l-4 border-primary">
+<p class="font-label-caps text-[10px] text-primary-fixed-dim">SECURED ASSETS</p>
+<p class="font-display-lg text-headline-md text-on-primary">42</p>
+</div>
+<div class="bg-black/30 p-stack-sm border-l-4 border-secondary">
+<p class="font-label-caps text-[10px] text-on-secondary-container">PENDING VERIFICATION</p>
+<p class="font-display-lg text-headline-md text-on-surface">03</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-margin py-3 bg-secondary text-on-secondary font-label-caps text-label-caps border-2 border-white hover:bg-white transition-all">DOWNLOAD_FULL_MANIFEST</button>
+</div>
+<!-- Card 2: Ion Thruster Fleet -->
+<div class="col-span-4 bg-surface-container border-4 border-secondary hard-shadow metallic-gradient group">
+<div class="h-48 overflow-hidden bg-black flex items-center justify-center p-gutter relative">
+<div class="absolute inset-0 bg-primary/5"></div>
+<img alt="Ion Propulsion System" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="A technical blueprint-style photograph of a high-tech ion thruster engine glowing with a soft blue plasma. The mechanical components are sharp, metallic, and intricate, showing industrial precision. The background is dark and moody, following the hardened aerospace aesthetic with subtle grit and platinum highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQBcKn6rzBFRIhXZY09dY2qgQbVp8OxQBYVdDT3yZoghYA7wg2K6z3g8H5PoO3QT0nMMWCw8xKODALjiHtyw8et2cqIGqIU66uzabpVNeZJADvAbfB8Y22DnQ2SLtj1DljRPotTKnIz9tOtyJzK_X3DImxb8ah72kQ5RCJt4psa9EPT5kogL3Hf-UkTMvO1y0n4pVvp4qric8Qgrpx3u-cEHG-PHbbXAx8uI-slbL3acY0vrIxLsJUsEhi7os_w4RQVCoWCuHLd38"/>
+</div>
+<div class="p-stack-md">
+<div class="flex justify-between mb-2">
+<span class="font-label-caps text-[10px] text-primary">PROPULSION</span>
+<span class="font-data-mono text-[10px] text-on-surface-variant">ID: ION-772</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-stack-sm">Xenon Fleet-7</h3>
+<p class="font-body-md text-on-surface-variant text-sm mb-stack-md">Consolidated title for 12 tactical-grade ion drive units currently in dry-dock.</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary" data-icon="lock_reset">lock_reset</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">IMMUTABLE_RECORD</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Real Estate -->
+<div class="col-span-4 bg-surface-container border-4 border-secondary hard-shadow group">
+<div class="h-48 overflow-hidden">
+<img alt="Orbital Station" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="A wide shot of a massive, modular orbital space station silhouetted against the curve of the Earth. The station is composed of brutalist geometric modules with metallic surfaces. Harsh sunlight creates deep shadows and brilliant silver highlights, reinforcing the sense of permanent, cold architecture in the void." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtpnGcz_4rR1T8Wn6_fdlXcvzxEylF2RTvP_wY_ZU3vmAYEcGeGokxAVDTsB17ydBo0np_Wh4FDMtpNC7fadwb_L1noAf6ko5I-lKyXzfIKbEdd9yI4_PZ35bBESjFl7v0UcjuAy786-_Byy8fEJyqOReUHFuuvzRkygSOz2FpLsgn_n8EH6jwP_CkfOTBR0ve5b9Ilf_nddx1vBSkldyCKEwxWboqYALlMbQGD5IdH4s_sm3SIaAGWYP2cpv3up0wDvIRu4yVIwQ"/>
+</div>
+<div class="p-stack-md">
+<div class="flex justify-between mb-2">
+<span class="font-label-caps text-[10px] text-primary">REAL_ESTATE</span>
+<span class="font-data-mono text-[10px] text-on-surface-variant">STATION: ZION-4</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-stack-sm">Habitation Wing C</h3>
+<p class="font-body-md text-on-surface-variant text-sm mb-stack-md">Tier-3 lease rights for research modules 401-412. Pressurized environment certified.</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="gavel">gavel</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">JURISDICTION: LUNAR_COURT</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Technical Asset -->
+<div class="col-span-4 bg-surface-container border-4 border-secondary hard-shadow metallic-gradient group">
+<div class="h-48 overflow-hidden p-gutter flex flex-col justify-center bg-black">
+<div class="border-t-2 border-b-2 border-primary/20 py-4 text-center">
+<p class="font-data-mono text-xl text-primary">0xFF2A...991C</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant mt-2">HASH_VALIDATION_TOKEN</p>
+</div>
+</div>
+<div class="p-stack-md">
+<div class="flex justify-between mb-2">
+<span class="font-label-caps text-[10px] text-primary">INTELLECTUAL_PROP</span>
+<span class="font-data-mono text-[10px] text-on-surface-variant">VER: 2.1.0</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-stack-sm">Nav-Array Algorithm</h3>
+<p class="font-body-md text-on-surface-variant text-sm mb-stack-md">Quantum-resistant navigation logic for deep-space transit across Belt corridors.</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">PATENT_PENDING_MARS</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Data Section -->
+<div class="mt-margin border-t-4 border-secondary pt-gutter grid grid-cols-4 gap-gutter">
+<div class="bg-surface-container-low p-stack-md border-2 border-secondary inner-stamped">
+<p class="font-label-caps text-[10px] text-primary mb-1">LAST_SYNC</p>
+<p class="font-data-mono text-data-mono text-on-surface">2023.10.24 // 14:22:01 UTC</p>
+</div>
+<div class="bg-surface-container-low p-stack-md border-2 border-secondary inner-stamped">
+<p class="font-label-caps text-[10px] text-primary mb-1">ENCRYPTION</p>
+<p class="font-data-mono text-data-mono text-on-surface">AES-512-QUANTUM</p>
+</div>
+<div class="bg-surface-container-low p-stack-md border-2 border-secondary inner-stamped">
+<p class="font-label-caps text-[10px] text-primary mb-1">NODE_STATUS</p>
+<p class="font-data-mono text-data-mono text-on-surface">SYNCHRONIZED (128/128)</p>
+</div>
+<div class="bg-surface-container-low p-stack-md border-2 border-secondary inner-stamped">
+<p class="font-label-caps text-[10px] text-primary mb-1">UPTIME</p>
+<p class="font-data-mono text-data-mono text-on-surface">99.9998% GLOBAL</p>
+</div>
+</div>
+</main>
+</div>
+<!-- Responsive FAB (Mobile/Small Screen Context) -->
+<button class="md:hidden fixed bottom-6 right-6 w-16 h-16 bg-primary text-on-primary flex items-center justify-center border-4 border-white shadow-xl z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</body></html>

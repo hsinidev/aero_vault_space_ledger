@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AERO-VAULT | Secure Access Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom recessed effect for inputs as per style guidance */
+        .recessed-input {
+            box-shadow: inset 2px 2px 0px 0px rgba(0, 0, 0, 0.5), inset -1px -1px 0px 0px rgba(255, 255, 255, 0.05);
+        }
+        /* Hardened block shadow */
+        .block-shadow {
+            box-shadow: 4px 4px 0px 0px #c7c6c4;
+        }
+        .active-press:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px #c7c6c4;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#353437",
+                        "on-secondary-container": "#b5b5b3",
+                        "on-surface-variant": "#c8c5cf",
+                        "on-tertiary-container": "#878787",
+                        "primary-fixed-dim": "#c2c2f2",
+                        "surface-variant": "#353437",
+                        "surface-dim": "#131316",
+                        "tertiary": "#c6c6c6",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "tertiary-container": "#1f1f1f",
+                        "on-primary": "#2b2d53",
+                        "surface-container": "#201f22",
+                        "surface": "#131316",
+                        "primary-fixed": "#e1e0ff",
+                        "surface-container-lowest": "#0e0e11",
+                        "on-primary-container": "#8283af",
+                        "background": "#131316",
+                        "error-container": "#93000a",
+                        "secondary-container": "#464746",
+                        "outline-variant": "#47464e",
+                        "on-surface": "#e5e1e5",
+                        "on-background": "#e5e1e5",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "inverse-primary": "#5a5b84",
+                        "surface-bright": "#3a393c",
+                        "inverse-on-surface": "#313033",
+                        "secondary": "#c7c6c4",
+                        "on-secondary": "#303130",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-tertiary": "#303030",
+                        "surface-tint": "#c2c2f2",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#e3e2e0",
+                        "on-primary-fixed": "#16173d",
+                        "secondary-fixed-dim": "#c7c6c4",
+                        "primary-container": "#1a1b41",
+                        "primary": "#c2c2f2",
+                        "outline": "#918f99",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "inverse-surface": "#e5e1e5",
+                        "on-primary-fixed-variant": "#42436b",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#2a292d",
+                        "on-secondary-fixed-variant": "#464746",
+                        "surface-container-low": "#1c1b1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "margin": "32px",
+                        "container-max": "1440px",
+                        "stack-sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "data-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopAppBar Segment (Modified for Landing/Auth) -->
+<header class="bg-surface text-primary font-headline-sm text-headline-sm docked full-width top-0 border-b-4 border-secondary flex justify-between items-center w-full px-gutter h-16 z-50">
+<div class="flex items-center gap-unit">
+<span class="material-symbols-outlined text-primary" data-icon="shield_lock">shield_lock</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tighter text-primary uppercase">AERO-VAULT</span>
+</div>
+<div class="flex items-center gap-stack-md">
+<span class="font-data-mono text-data-mono text-on-surface-variant opacity-70">SYSTEM_STATUS: NOMINAL</span>
+<div class="h-8 w-8 bg-secondary-container rounded-full border-2 border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="person">person</span>
+</div>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center p-gutter relative overflow-hidden">
+<!-- Abstract Background Texture -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_#42436b_0%,_transparent_70%)]"></div>
+<div class="grid grid-cols-12 h-full w-full opacity-20">
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+<div class="border-r border-outline-variant"></div>
+</div>
+</div>
+<div class="container max-w-container-max grid grid-cols-1 md:grid-cols-12 gap-gutter items-start z-10">
+<!-- Left Column: Branding & Aesthetic Content -->
+<div class="md:col-span-5 flex flex-col gap-stack-lg">
+<div class="bg-surface-container-low border-l-4 border-primary p-gutter">
+<h1 class="font-display-lg text-display-lg mb-unit">SECURE_GATEWAY</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                        Institutional-grade clearance for off-planet asset management. Access the immutable registry for aerospace holdings.
+                    </p>
+</div>
+<div class="grid grid-cols-2 gap-stack-md">
+<div class="bg-primary-container border-2 border-primary p-stack-md">
+<span class="material-symbols-outlined text-primary mb-stack-sm" data-icon="fingerprint">fingerprint</span>
+<div class="font-label-caps text-label-caps text-primary uppercase mb-unit">Biometric Sync</div>
+<div class="font-data-mono text-data-mono text-on-primary-container">ACTIVE_ENROLLMENT</div>
+</div>
+<div class="bg-surface-container-high border-2 border-outline p-stack-md opacity-60">
+<span class="material-symbols-outlined text-on-surface-variant mb-stack-sm" data-icon="key">key</span>
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-unit">Hardware Key</div>
+<div class="font-data-mono text-data-mono text-on-surface-variant">READY_FOR_PAIRING</div>
+</div>
+</div>
+<!-- Visual Element -->
+<div class="relative h-48 w-full border-4 border-secondary overflow-hidden bg-black">
+<img class="absolute inset-0 w-full h-full object-cover grayscale opacity-50 mix-blend-screen" data-alt="A high-contrast cinematic photograph of a futuristic aerospace data vault with massive interlocking metallic doors. The lighting is cold and clinical, with sharp shadows and subtle cyan highlights emphasizing the brutalist architecture. Platinum silver surfaces reflect a high-tech interface glowing in the background, creating an atmosphere of absolute security and industrial permanence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo49QHTd7SllC5QmWTa4Otl6AQBFqGhwEP2soMBks3c7SEowyWHTl7_trBN4susiiN4slzOkcSoo6HF83DwdEDxna48MOdU9xYI6YIoKROtOfJKcuGORW8w9a3gMEHHQykY_hlgln5rWF8lJql0L4zcrJEbj3covJ9g0ECpi0KRGAp-XVikKrQaVVmCd6ndOO0MtOOH3oXUiXir8rWssoVS4tUtqvzkPzYsx4qLh36GR5DmeIDFAZspLaN6UMqTnSc1oNsKC2qWHE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<div class="absolute bottom-stack-md left-stack-md">
+<div class="flex items-center gap-unit bg-primary px-2 py-1">
+<span class="material-symbols-outlined text-on-primary text-sm" data-icon="verified_user">verified_user</span>
+<span class="font-label-caps text-label-caps text-on-primary">HARDENED_CORE_V3</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Auth Portal -->
+<div class="md:col-span-7">
+<div class="bg-surface-container border-4 border-secondary p-stack-lg block-shadow">
+<!-- Tabs -->
+<div class="flex gap-gutter mb-stack-lg border-b-2 border-outline-variant">
+<button class="pb-stack-sm border-b-4 border-primary font-label-caps text-label-caps text-primary uppercase">Sign In</button>
+<button class="pb-stack-sm border-b-4 border-transparent font-label-caps text-label-caps text-on-surface-variant uppercase hover:text-primary">Create Account</button>
+</div>
+<form class="space-y-stack-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="space-y-unit">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Operator ID</label>
+<input class="w-full bg-surface-container-lowest border-none recessed-input p-stack-md font-data-mono text-data-mono text-primary focus:ring-1 focus:ring-primary outline-none" placeholder="OP_XXXXX_000" type="text"/>
+</div>
+<div class="space-y-unit">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Terminal Passphrase</label>
+<input class="w-full bg-surface-container-lowest border-none recessed-input p-stack-md font-data-mono text-data-mono text-primary focus:ring-1 focus:ring-primary outline-none" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="p-gutter border-2 border-outline-variant bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-stack-md">
+<div class="p-stack-sm bg-primary-container border border-primary">
+<span class="material-symbols-outlined text-primary" data-icon="biometric_viewer">FileArchive</span>
+</div>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface uppercase">Biometric Auth</div>
+<div class="font-data-mono text-data-mono text-on-surface-variant text-xs opacity-70">Retinal scan or fingerprint sync</div>
+</div>
+</div>
+<button class="px-gutter py-stack-sm bg-secondary text-on-secondary font-label-caps text-label-caps active-press border-2 border-transparent" type="button">ENABLE</button>
+</div>
+<div class="space-y-unit">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-unit">Authorized Operator Sanctions</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-stack-md h-32 overflow-y-auto font-data-mono text-data-mono text-xs text-on-surface-variant leading-relaxed">
+<p class="mb-stack-sm uppercase font-bold">SECTION 01: DATA IMMUTABILITY</p>
+<p class="mb-stack-md">The operator acknowledges that all transactions within the Aero-Vault environment are cryptographically final. No reversals are permitted under Protocol LEO-01. Any attempt to circumvent clearance levels will result in immediate terminal lockout and reporting to the Jurisdiction Map authorities.</p>
+<p class="mb-stack-sm uppercase font-bold">SECTION 02: HARDWARE ENCLAVE</p>
+<p>Access is restricted to authorized hardware enclaves. The operator must maintain physical custody of the Hardware Key at all times. Failure to secure the physical terminal constitutes a breach of the Fleet Registry Security Act.</p>
+</div>
+<div class="flex items-center gap-stack-sm pt-unit">
+<input class="w-4 h-4 rounded-none bg-surface-container-lowest border-outline text-primary focus:ring-primary" id="sanctions" type="checkbox"/>
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="sanctions">I CONFIRM OPERATOR COMPLIANCE WITH ALL SANCTIONS</label>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-stack-md pt-stack-md">
+<button class="flex-1 bg-primary text-on-primary p-stack-md font-label-caps text-label-caps active-press border-2 border-secondary tracking-widest uppercase flex items-center justify-center gap-unit">
+<span class="material-symbols-outlined" data-icon="login">login</span>
+                                INITIALIZE ACCESS
+                            </button>
+<button class="flex-1 bg-black text-secondary border-4 border-secondary p-stack-md font-label-caps text-label-caps active-press uppercase flex items-center justify-center gap-unit">
+<span class="material-symbols-outlined" data-icon="token">token</span>
+                                HARDWARE SYNC
+                            </button>
+</div>
+</form>
+<div class="mt-stack-lg pt-stack-md border-t border-outline-variant flex justify-between items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary flex items-center gap-unit" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+                            EMERGENCY LOCKOUT
+                        </a>
+<span class="font-data-mono text-data-mono text-on-tertiary-container text-[10px]">ENCRYPTION: AES-256-GCM / STATION: LEO-01</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Segment / Legal Strip -->
+<footer class="bg-surface border-t-4 border-secondary p-stack-md w-full">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-stack-md opacity-70">
+<div class="flex gap-stack-lg">
+<a class="font-label-caps text-label-caps text-on-surface uppercase hover:text-primary" href="#">Legal Terms</a>
+<a class="font-label-caps text-label-caps text-on-surface uppercase hover:text-primary" href="#">Jurisdiction</a>
+<a class="font-label-caps text-label-caps text-on-surface uppercase hover:text-primary" href="#">Fleet Registry</a>
+</div>
+<div class="font-data-mono text-data-mono text-on-surface-variant">
+                © 2024 AERO-VAULT CORP. [OFF-WORLD ASSET PROTOCOL]
+            </div>
+</div>
+</footer>
+<!-- FAB Support (Contextual Suppression applies, but for Landing/Portal we might keep an emergency one) -->
+<div class="fixed bottom-margin right-margin z-50">
+<button class="w-16 h-16 bg-primary text-on-primary rounded-none border-4 border-secondary block-shadow active-press flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl" data-icon="support_agent" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+</button>
+</div>
+</body></html>

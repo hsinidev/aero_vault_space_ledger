@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;600&amp;family=Hanken+Grotesk:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#42436b",
+                    "on-error": "#690005",
+                    "on-secondary-container": "#b5b5b3",
+                    "primary-fixed-dim": "#c2c2f2",
+                    "on-background": "#e5e1e5",
+                    "outline-variant": "#47464e",
+                    "surface-container": "#201f22",
+                    "on-secondary-fixed": "#1b1c1b",
+                    "surface-container-low": "#1c1b1e",
+                    "primary-fixed": "#e1e0ff",
+                    "surface-variant": "#353437",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "on-surface": "#e5e1e5",
+                    "surface": "#131316",
+                    "surface-container-lowest": "#0e0e11",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#353437",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "on-tertiary-container": "#878787",
+                    "inverse-on-surface": "#313033",
+                    "on-primary-fixed": "#16173d",
+                    "on-tertiary": "#303030",
+                    "secondary": "#c7c6c4",
+                    "surface-tint": "#c2c2f2",
+                    "background": "#131316",
+                    "tertiary-fixed": "#e2e2e2",
+                    "on-primary": "#2b2d53",
+                    "inverse-surface": "#e5e1e5",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#1b1b1b",
+                    "outline": "#918f99",
+                    "on-surface-variant": "#c8c5cf",
+                    "error-container": "#93000a",
+                    "primary-container": "#1a1b41",
+                    "surface-container-high": "#2a292d",
+                    "on-secondary": "#303130",
+                    "secondary-fixed": "#e3e2e0",
+                    "on-secondary-fixed-variant": "#464746",
+                    "tertiary": "#c6c6c6",
+                    "on-primary-container": "#8283af",
+                    "tertiary-container": "#1f1f1f",
+                    "surface-bright": "#3a393c",
+                    "inverse-primary": "#5a5b84",
+                    "primary": "#c2c2f2",
+                    "secondary-container": "#464746",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "surface-dim": "#131316"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "stack-lg": "32px",
+                    "stack-md": "16px",
+                    "container-max": "1440px",
+                    "margin": "32px",
+                    "stack-sm": "8px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-caps": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hardened-border {
+            border: 4px solid #c7c6c4;
+        }
+        .hardened-border-sm {
+            border: 2px solid #c7c6c4;
+        }
+        .recessed-input {
+            box-shadow: inset 2px 2px 0px 0px rgba(0,0,0,0.5), inset -1px -1px 0px 0px rgba(255,255,255,0.1);
+        }
+        .metallic-bg {
+            background: linear-gradient(135deg, #201f22 0%, #131316 100%);
+        }
+        .status-mint {
+            border: 1px solid #c2f2e1;
+            padding: 2px 8px;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-20">
+<!-- TopAppBar Shell -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary docked full-width top-0 border-b-4 border-secondary flex justify-between items-center w-full px-gutter h-16 sticky z-50">
+<div class="flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-primary" data-icon="shield_lock">shield_lock</span>
+<h1 class="text-headline-sm font-headline-sm font-bold tracking-tighter text-primary uppercase">AERO-VAULT</h1>
+</div>
+<div class="flex items-center gap-gutter">
+<nav class="hidden md:flex gap-stack-md">
+<span class="font-label-caps text-label-caps text-on-surface-variant cursor-pointer hover:bg-secondary-container dark:hover:bg-secondary-container p-2 transition-transform">TERMINAL</span>
+<span class="font-label-caps text-label-caps text-primary font-bold cursor-pointer translate-y-0.5 transition-transform p-2">LOGS</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant cursor-pointer hover:bg-secondary-container dark:hover:bg-secondary-container p-2 transition-transform">REGISTRY</span>
+</nav>
+<div class="w-10 h-10 rounded-full border-2 border-primary bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Security Officer Profile" class="w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_VwXm1QGAOreD2stZ62CWYjZtQnv3GpTJDQ4oXAcnpIfUwZDasijLmVbcT_xe5-lx-QAlJNzw80ITTVZPspV95dlL-uPEsTyxmwTeu4Xbkz1ufcc5rr3epMDijlYP7wJHrlmvNqIugHM42wBmjxMj7HpaXMAX3MlcTpcEH1eQnxse7PtdcuGEVDuW16-Q6rZjWj21AsLyQDIQSR-tzz9BhEQPrfS8801TBv5myh6WWPkOCqi27h2rWJWsV-LYmdCsnljJdW9yfEw"/>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin py-stack-lg">
+<!-- Hero Context -->
+<div class="mb-stack-lg border-l-4 border-primary pl-gutter py-unit">
+<h2 class="font-display-lg text-display-lg uppercase tracking-tight">Maintenance_Registry</h2>
+<p class="font-data-mono text-data-mono text-on-surface-variant uppercase mt-unit">Vessel: LEO-STATION-7 // Class: Heavy-Lift-Orbiter</p>
+</div>
+<!-- Dashboard Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-stack-lg">
+<div class="md:col-span-1 hardened-border metallic-bg p-gutter flex flex-col justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-unit">TOTAL_RECORDS</p>
+<p class="font-headline-md text-headline-md font-bold text-primary">1,284</p>
+</div>
+<span class="material-symbols-outlined text-primary self-end" data-icon="database">database</span>
+</div>
+<div class="md:col-span-1 hardened-border metallic-bg p-gutter flex flex-col justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-unit">FLEET_STATUS</p>
+<p class="font-headline-md text-headline-md font-bold text-primary">OPTIMAL</p>
+</div>
+<span class="material-symbols-outlined text-primary self-end" data-icon="verified">verified</span>
+</div>
+<div class="md:col-span-2 hardened-border bg-primary-container p-gutter flex items-center justify-between">
+<div class="flex-1">
+<p class="font-label-caps text-label-caps text-on-primary-container mb-unit">LAST_SYNC_EVENT</p>
+<p class="font-data-mono text-data-mono text-on-surface">2024.05.21_14:02:11_UTC</p>
+<p class="font-data-mono text-[10px] text-on-primary-container mt-2 opacity-50 truncate">BLOCK_HASH: 0x9f1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p</p>
+</div>
+<div class="h-12 w-12 border-4 border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="sync">sync</span>
+</div>
+</div>
+</div>
+<!-- Filters & Search -->
+<div class="flex flex-col md:flex-row gap-gutter mb-gutter">
+<div class="flex-1 hardened-border-sm bg-surface-container-low px-4 py-3 flex items-center gap-stack-sm recessed-input">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full font-data-mono text-data-mono text-on-surface uppercase placeholder:text-on-surface-variant/30" placeholder="FILTER_BY_PART_ID_OR_HASH..." type="text"/>
+</div>
+<button class="hardened-border-sm bg-secondary hover:bg-on-secondary px-gutter py-3 flex items-center gap-unit transition-colors group">
+<span class="font-label-caps text-label-caps text-on-secondary group-hover:text-secondary">EXPORT_CSV</span>
+<span class="material-symbols-outlined text-on-secondary group-hover:text-secondary" data-icon="download">download</span>
+</button>
+</div>
+<!-- Timeline / List Container -->
+<div class="flex flex-col gap-unit bg-surface-container border-4 border-secondary p-unit">
+<!-- Entry 1 -->
+<div class="metallic-bg p-gutter flex flex-col md:flex-row gap-gutter hover:bg-surface-variant transition-colors border-b-2 border-surface-container-highest last:border-b-0">
+<div class="md:w-48 shrink-0">
+<p class="font-label-caps text-label-caps text-primary">MAY_21_2024</p>
+<p class="font-data-mono text-[11px] text-on-surface-variant">08:45:00_UTC</p>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-stack-sm mb-unit">
+<span class="status-mint bg-primary-container text-[10px] font-label-caps text-primary border-primary/50">COMPLETED</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Main_Thruster_A1_Calibration</h3>
+</div>
+<p class="font-body-md text-on-surface-variant mb-stack-sm max-w-2xl">Re-aligned magnetic nozzle gimbal offsets by 0.042mrad. Verified plasma containment integrity at 105% nominal pressure.</p>
+<div class="bg-surface-container-lowest p-2 border-l-2 border-primary flex items-center justify-between">
+<div class="flex items-center gap-unit overflow-hidden">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="link">link</span>
+<span class="font-data-mono text-[10px] text-on-primary-container truncate">SHA256: 7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069</span>
+</div>
+<span class="font-label-caps text-[10px] text-primary border border-primary px-1">VERIFIED</span>
+</div>
+</div>
+<div class="md:w-32 shrink-0 text-right">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-1">PART_ID</p>
+<p class="font-data-mono text-data-mono text-secondary">THR-A1-99</p>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="metallic-bg p-gutter flex flex-col md:flex-row gap-gutter hover:bg-surface-variant transition-colors border-b-2 border-surface-container-highest last:border-b-0">
+<div class="md:w-48 shrink-0">
+<p class="font-label-caps text-label-caps text-primary">MAY_19_2024</p>
+<p class="font-data-mono text-[11px] text-on-surface-variant">22:12:55_UTC</p>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-stack-sm mb-unit">
+<span class="status-mint bg-secondary-container text-[10px] font-label-caps text-secondary border-secondary/50">ROUTINE</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Hull_Integrity_Scan_Section_04</h3>
+</div>
+<p class="font-body-md text-on-surface-variant mb-stack-sm max-w-2xl">Standard ultrasonic sweep of external radiator panels. No micro-meteoroid pitting detected above 0.5mm threshold.</p>
+<div class="bg-surface-container-lowest p-2 border-l-2 border-primary flex items-center justify-between">
+<div class="flex items-center gap-unit overflow-hidden">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="link">link</span>
+<span class="font-data-mono text-[10px] text-on-primary-container truncate">SHA256: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2</span>
+</div>
+<span class="font-label-caps text-[10px] text-primary border border-primary px-1">VERIFIED</span>
+</div>
+</div>
+<div class="md:w-32 shrink-0 text-right">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-1">PART_ID</p>
+<p class="font-data-mono text-data-mono text-secondary">HUL-EXT-04</p>
+</div>
+</div>
+<!-- Entry 3 (Critical Alert Highlight) -->
+<div class="metallic-bg p-gutter flex flex-col md:flex-row gap-gutter hover:bg-surface-variant transition-colors border-b-2 border-surface-container-highest last:border-b-0 bg-primary-container/10">
+<div class="md:w-48 shrink-0">
+<p class="font-label-caps text-label-caps text-error">MAY_15_2024</p>
+<p class="font-data-mono text-[11px] text-on-surface-variant">03:20:18_UTC</p>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-stack-sm mb-unit">
+<span class="status-mint bg-error-container text-[10px] font-label-caps text-error border-error/50">REPLACED</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Emergency_Battery_Coupler_Swap</h3>
+</div>
+<p class="font-body-md text-on-surface-variant mb-stack-sm max-w-2xl">Unit BC-112 showed abnormal thermal gain during discharge cycle. Hot-swapped with unit BC-115. Failed unit sent to forensic analysis.</p>
+<div class="bg-surface-container-lowest p-2 border-l-2 border-primary flex items-center justify-between">
+<div class="flex items-center gap-unit overflow-hidden">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="link">link</span>
+<span class="font-data-mono text-[10px] text-on-primary-container truncate">SHA256: d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2g3h4i5</span>
+</div>
+<span class="font-label-caps text-[10px] text-primary border border-primary px-1">VERIFIED</span>
+</div>
+</div>
+<div class="md:w-32 shrink-0 text-right">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-1">PART_ID</p>
+<p class="font-data-mono text-data-mono text-secondary">PWR-BC-112</p>
+</div>
+</div>
+<!-- Entry 4 -->
+<div class="metallic-bg p-gutter flex flex-col md:flex-row gap-gutter hover:bg-surface-variant transition-colors border-b-2 border-surface-container-highest last:border-b-0">
+<div class="md:w-48 shrink-0">
+<p class="font-label-caps text-label-caps text-primary">MAY_12_2024</p>
+<p class="font-data-mono text-[11px] text-on-surface-variant">15:00:00_UTC</p>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-stack-sm mb-unit">
+<span class="status-mint bg-primary-container text-[10px] font-label-caps text-primary border-primary/50">COMPLETED</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">O2_Scrubber_Membrane_Service</h3>
+</div>
+<p class="font-body-md text-on-surface-variant mb-stack-sm max-w-2xl">Quarterly chemical bath and rejuvenation of polymer filter stacks. CO2 sequestration efficiency restored to 99.8%.</p>
+<div class="bg-surface-container-lowest p-2 border-l-2 border-primary flex items-center justify-between">
+<div class="flex items-center gap-unit overflow-hidden">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="link">link</span>
+<span class="font-data-mono text-[10px] text-on-primary-container truncate">SHA256: g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2g3h4i5j6k7l8</span>
+</div>
+<span class="font-label-caps text-[10px] text-primary border border-primary px-1">VERIFIED</span>
+</div>
+</div>
+<div class="md:w-32 shrink-0 text-right">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-1">PART_ID</p>
+<p class="font-data-mono text-data-mono text-secondary">LSS-SCR-09</p>
+</div>
+</div>
+</div>
+<!-- Asset Visualization Section -->
+<section class="mt-stack-lg grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="hardened-border overflow-hidden relative group">
+<img alt="Spacecraft Components" class="w-full h-80 object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" data-alt="A high-detail industrial macro shot of complex spacecraft engine parts and electrical wiring. The lighting is cold and clinical, with deep indigo shadows and bright metallic highlights on silver and titanium surfaces. The aesthetic is ultra-secure and high-tech, evoking the feeling of an immutable maintenance facility for off-planet assets. Platinum silver edges of the machinery are sharp and precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo0aMWDN2vLXLH1p6PdiEwmeRWvR6-xnyGc7D8P1Gxb7_j412kv1aamHOweM2k5nlVxs2nwBIfaDkulHlUorsZHvG_ZVoCGNbwMoEZgGK_6SEGalrLKUnobSnd8Y16EGKeq5tJmU7RiIZSXgUNA-P2VlqhXOAloD68bkq1cjEJlGTMQqP0A9tTDghTkzlgJ0jnJaTgnbG0gx_wwTQoRGLJegt_1ZTjaCvBuUE7BXkYhOBchhbC8neWr_DNO2K-IuDkzCHUTfNnTU0"/>
+<div class="absolute bottom-0 left-0 right-0 p-gutter bg-background/80 backdrop-blur-sm border-t-4 border-secondary">
+<p class="font-label-caps text-label-caps text-primary mb-unit">VISUAL_AUDIT_042</p>
+<p class="font-body-md text-on-surface">Primary Propulsion Unit Structural Integrity Check.</p>
+</div>
+</div>
+<div class="hardened-border p-gutter flex flex-col justify-between metallic-bg">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary uppercase mb-stack-sm">Immutable_Guarantee</h3>
+<p class="font-body-md text-on-surface-variant">Each record in this ledger is cryptographically hashed and cross-referenced with the station's local blockchain. Tamper-evident architecture ensures total transparency for fleet insurance and orbital safety regulators.</p>
+</div>
+<div class="mt-gutter flex gap-stack-md">
+<div class="flex-1 p-2 bg-surface-container-lowest border border-outline-variant">
+<p class="font-label-caps text-[10px] text-on-surface-variant">NODE_LOCATION</p>
+<p class="font-data-mono text-data-mono text-on-surface">ORBITAL_STATION_ALPHA</p>
+</div>
+<div class="flex-1 p-2 bg-surface-container-lowest border border-outline-variant">
+<p class="font-label-caps text-[10px] text-on-surface-variant">UPTIME</p>
+<p class="font-data-mono text-data-mono text-on-surface">99.9999%</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-surface border-t-4 border-secondary">
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 cursor-pointer hover:bg-surface-variant px-4 h-full">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-caps text-label-caps mt-1">Vault</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container border-2 border-primary px-4 py-1 scale-95 transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-label-caps text-label-caps mt-1">Logs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 cursor-pointer hover:bg-surface-variant px-4 h-full">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-label-caps text-label-caps mt-1">Scan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 cursor-pointer hover:bg-surface-variant px-4 h-full">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-label-caps text-label-caps mt-1">Legal</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 cursor-pointer hover:bg-surface-variant px-4 h-full">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+<span class="font-label-caps text-label-caps mt-1">Assets</span>
+</div>
+</nav>
+</body></html>

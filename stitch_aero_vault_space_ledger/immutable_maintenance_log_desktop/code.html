@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for industrial feel */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #131316; }
+        ::-webkit-scrollbar-thumb { background: #464746; border: 2px solid #131316; }
+        ::-webkit-scrollbar-thumb:hover { background: #c2c2f2; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#353437",
+                        "on-secondary-container": "#b5b5b3",
+                        "on-surface-variant": "#c8c5cf",
+                        "on-tertiary-container": "#878787",
+                        "primary-fixed-dim": "#c2c2f2",
+                        "surface-variant": "#353437",
+                        "surface-dim": "#131316",
+                        "tertiary": "#c6c6c6",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "tertiary-container": "#1f1f1f",
+                        "on-primary": "#2b2d53",
+                        "surface-container": "#201f22",
+                        "surface": "#131316",
+                        "primary-fixed": "#e1e0ff",
+                        "surface-container-lowest": "#0e0e11",
+                        "on-primary-container": "#8283af",
+                        "background": "#131316",
+                        "error-container": "#93000a",
+                        "secondary-container": "#464746",
+                        "outline-variant": "#47464e",
+                        "on-surface": "#e5e1e5",
+                        "on-background": "#e5e1e5",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "inverse-primary": "#5a5b84",
+                        "surface-bright": "#3a393c",
+                        "inverse-on-surface": "#313033",
+                        "secondary": "#c7c6c4",
+                        "on-secondary": "#303130",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-tertiary": "#303030",
+                        "surface-tint": "#c2c2f2",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#e3e2e0",
+                        "on-primary-fixed": "#16173d",
+                        "secondary-fixed-dim": "#c7c6c4",
+                        "primary-container": "#1a1b41",
+                        "primary": "#c2c2f2",
+                        "outline": "#918f99",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "inverse-surface": "#e5e1e5",
+                        "on-primary-fixed-variant": "#42436b",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#2a292d",
+                        "on-secondary-fixed-variant": "#464746",
+                        "surface-container-low": "#1c1b1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "margin": "32px",
+                        "container-max": "1440px",
+                        "stack-sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "data-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar Shell -->
+<header class="bg-surface text-primary font-headline-sm flex justify-between items-center w-full px-gutter h-16 docked full-width top-0 border-b-4 border-secondary z-50">
+<div class="flex items-center gap-unit">
+<span class="material-symbols-outlined text-primary" data-icon="shield_lock">shield_lock</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tighter text-primary uppercase">AERO-VAULT</span>
+</div>
+<div class="flex items-center gap-stack-md">
+<nav class="hidden md:flex gap-gutter">
+<a class="text-on-surface-variant hover:bg-secondary-container px-3 py-1 transition-transform" href="#">Vault</a>
+<a class="text-primary font-bold translate-y-0.5 transition-transform px-3 py-1" href="#">Logs</a>
+<a class="text-on-surface-variant hover:bg-secondary-container px-3 py-1 transition-transform" href="#">Scan</a>
+<a class="text-on-surface-variant hover:bg-secondary-container px-3 py-1 transition-transform" href="#">Assets</a>
+</nav>
+<div class="h-10 w-10 bg-secondary-container border-2 border-secondary flex items-center justify-center overflow-hidden">
+<img alt="Security Officer Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAag1xRtUoE5e9ga0Zl8F6-9Wst9apbveK3Z_VQ2BujemzO-_MIDuJSsrmG-_-deZsMhhRX94tn7EeVi1pGz0FrAB3AThYVZcJmEq7warKIEIpiECRDBmBFedudlFmquhbjlkrs9dp3iF4frjZK-pAiMal9RjQdWHpPC5iJyJenUJA5uaPGnBYIT12aY-c81j2RucDi3a2kf8aiPBOB2VdZpVkw_CCgNZza_uMKaFYNM_Pw-aJPZltDwkNK8rnFPlzLv7ZdrkIApZ4"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- NavigationDrawer Shell -->
+<aside class="fixed inset-y-0 left-0 z-50 flex flex-col gap-unit h-full w-80 border-r-4 border-secondary bg-surface-container-low hidden lg:flex pt-16">
+<div class="p-gutter border-b-4 border-secondary">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 bg-primary border-2 border-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" data-icon="person">person</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-sm text-primary">OPERATOR_042</div>
+<div class="font-body-md text-body-md text-on-surface-variant opacity-70">Tier-1 Clearance</div>
+<div class="font-data-mono text-label-caps text-secondary-fixed">Station: LEO-01</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 p-unit overflow-y-auto">
+<a class="flex items-center gap-stack-sm p-stack-md text-on-surface hover:bg-surface-bright transition-all mb-unit" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-caps text-label-caps">Security Audit</span>
+</a>
+<a class="flex items-center gap-stack-sm p-stack-md bg-secondary-container text-on-secondary-container font-bold border-l-4 border-primary opacity-80 mb-unit" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+<span class="font-label-caps text-label-caps">Fleet Registry</span>
+</a>
+<a class="flex items-center gap-stack-sm p-stack-md text-on-surface hover:bg-surface-bright transition-all mb-unit" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+<span class="font-label-caps text-label-caps">Jurisdiction Map</span>
+</a>
+<a class="flex items-center gap-stack-sm p-stack-md text-on-surface hover:bg-surface-bright transition-all mb-unit" href="#">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+<span class="font-label-caps text-label-caps">Terminal Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-80 overflow-y-auto bg-background p-gutter mb-20 md:mb-0">
+<!-- Header Section -->
+<section class="mb-stack-lg flex flex-col md:flex-row md:items-end justify-between gap-gutter">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface uppercase mb-unit">Immutable Maintenance Log</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Authenticated ledger of all off-planet hardware maintenance events. All records are cryptographically hashed and anchored to the LEO-01 Security Protocol.
+                    </p>
+</div>
+<div class="flex flex-wrap gap-stack-md">
+<button class="bg-secondary-container text-white px-gutter py-stack-md border-2 border-secondary font-label-caps text-label-caps flex items-center gap-stack-sm hover:bg-secondary transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                        EXPORT AUDIT CSV
+                    </button>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<section class="bg-surface-container border-4 border-secondary p-gutter mb-stack-lg">
+<div class="flex flex-col md:flex-row gap-gutter items-center">
+<div class="relative flex-1 w-full">
+<span class="absolute left-stack-md top-1/2 -translate-y-1/2 material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border-2 border-outline-variant p-stack-md pl-12 text-data-mono font-data-mono text-on-surface placeholder:opacity-40 focus:border-primary focus:ring-0" placeholder="QUERY BY PART_ID, HASH, OR OPERATOR..." type="text"/>
+</div>
+<div class="flex gap-stack-md w-full md:w-auto">
+<select class="bg-surface-container-lowest border-2 border-outline-variant p-stack-md text-data-mono font-data-mono text-on-surface focus:border-primary">
+<option>ALL_SYSTEMS</option>
+<option>PROPULSION</option>
+<option>LIFE_SUPPORT</option>
+<option>AVIONICS</option>
+</select>
+<button class="bg-primary text-on-primary px-gutter py-stack-md font-label-caps text-label-caps flex items-center gap-stack-sm hover:bg-on-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+                            FILTER
+                        </button>
+</div>
+</div>
+</section>
+<!-- Technical Ledger Table -->
+<section class="bg-surface border-4 border-secondary overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-surface-container-highest border-b-4 border-secondary text-left">
+<th class="p-gutter font-label-caps text-label-caps text-on-surface uppercase tracking-widest border-r-2 border-secondary">Log ID</th>
+<th class="p-gutter font-label-caps text-label-caps text-on-surface uppercase tracking-widest border-r-2 border-secondary">Timestamp</th>
+<th class="p-gutter font-label-caps text-label-caps text-on-surface uppercase tracking-widest border-r-2 border-secondary">System Part ID</th>
+<th class="p-gutter font-label-caps text-label-caps text-on-surface uppercase tracking-widest border-r-2 border-secondary">Verification Hash</th>
+<th class="p-gutter font-label-caps text-label-caps text-on-surface uppercase tracking-widest border-r-2 border-secondary">Status</th>
+<th class="p-gutter font-label-caps text-label-caps text-on-surface uppercase tracking-widest">Audit</th>
+</tr>
+</thead>
+<tbody class="font-data-mono text-data-mono text-on-surface-variant">
+<!-- Row 1 -->
+<tr class="border-b-2 border-secondary hover:bg-surface-container-low transition-colors group">
+<td class="p-gutter border-r-2 border-secondary font-bold text-primary">#LOG-7729-X</td>
+<td class="p-gutter border-r-2 border-secondary opacity-70">2024.05.12 14:22:01</td>
+<td class="p-gutter border-r-2 border-secondary">THRUSTER_A1_VALVE</td>
+<td class="p-gutter border-r-2 border-secondary font-data-mono text-[11px] truncate max-w-[120px]">0x8e2c...4f12a</td>
+<td class="p-gutter border-r-2 border-secondary">
+<span class="inline-flex items-center gap-unit px-2 py-1 border-2 border-[#50C878] text-[#50C878] text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span> VERIFIED
+                                    </span>
+</td>
+<td class="p-gutter">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-lowest/50 border-b-2 border-secondary hover:bg-surface-container-low transition-colors">
+<td class="p-gutter border-r-2 border-secondary font-bold text-primary">#LOG-7730-A</td>
+<td class="p-gutter border-r-2 border-secondary opacity-70">2024.05.12 15:45:12</td>
+<td class="p-gutter border-r-2 border-secondary">CORE_REPL_MOD_9</td>
+<td class="p-gutter border-r-2 border-secondary font-data-mono text-[11px] truncate max-w-[120px]">0x9f1a...11bb3</td>
+<td class="p-gutter border-r-2 border-secondary">
+<span class="inline-flex items-center gap-unit px-2 py-1 border-2 border-[#FFBF00] text-[#FFBF00] text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px]" data-icon="pending">pending</span> PENDING
+                                    </span>
+</td>
+<td class="p-gutter">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b-2 border-secondary hover:bg-surface-container-low transition-colors">
+<td class="p-gutter border-r-2 border-secondary font-bold text-primary">#LOG-7731-Z</td>
+<td class="p-gutter border-r-2 border-secondary opacity-70">2024.05.12 18:00:00</td>
+<td class="p-gutter border-r-2 border-secondary">NAV_OXYGEN_SENSOR</td>
+<td class="p-gutter border-r-2 border-secondary font-data-mono text-[11px] truncate max-w-[120px]">0x2c4d...99eef</td>
+<td class="p-gutter border-r-2 border-secondary">
+<span class="inline-flex items-center gap-unit px-2 py-1 border-2 border-error text-error text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px]" data-icon="warning">warning</span> REJECTED
+                                    </span>
+</td>
+<td class="p-gutter">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-surface-container-lowest/50 border-b-2 border-secondary hover:bg-surface-container-low transition-colors">
+<td class="p-gutter border-r-2 border-secondary font-bold text-primary">#LOG-7732-X</td>
+<td class="p-gutter border-r-2 border-secondary opacity-70">2024.05.13 02:12:44</td>
+<td class="p-gutter border-r-2 border-secondary">EXT_PLATE_33</td>
+<td class="p-gutter border-r-2 border-secondary font-data-mono text-[11px] truncate max-w-[120px]">0xaa12...cc445</td>
+<td class="p-gutter border-r-2 border-secondary">
+<span class="inline-flex items-center gap-unit px-2 py-1 border-2 border-[#50C878] text-[#50C878] text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span> VERIFIED
+                                    </span>
+</td>
+<td class="p-gutter">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="bg-surface-container-highest p-stack-md flex justify-between items-center px-gutter">
+<span class="text-data-mono text-[12px] opacity-60">SHOWING 1-4 OF 2,842 ENTRIES</span>
+<div class="flex gap-stack-sm">
+<button class="w-10 h-10 border-2 border-secondary flex items-center justify-center hover:bg-secondary hover:text-surface transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="px-gutter border-2 border-primary bg-primary text-on-primary font-bold text-data-mono">1</button>
+<button class="px-gutter border-2 border-secondary text-on-surface hover:bg-secondary hover:text-surface transition-all">2</button>
+<button class="px-gutter border-2 border-secondary text-on-surface hover:bg-secondary hover:text-surface transition-all">3</button>
+<button class="w-10 h-10 border-2 border-secondary flex items-center justify-center hover:bg-secondary hover:text-surface transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Bottom Dashboard Bento Section -->
+<section class="mt-stack-lg grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container border-4 border-secondary p-gutter relative overflow-hidden">
+<div class="absolute top-0 right-0 p-stack-sm opacity-20">
+<span class="material-symbols-outlined text-[64px]" data-icon="history_edu">history_edu</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-label-caps text-label-caps text-secondary mb-stack-sm">TOTAL LOGS</h3>
+<div class="font-display-lg text-headline-md text-on-surface">2,842,091</div>
+<div class="mt-stack-md text-data-mono text-[12px] text-[#50C878]">+12.4% THIS CYCLE</div>
+</div>
+</div>
+<div class="bg-surface-container border-4 border-secondary p-gutter relative overflow-hidden">
+<div class="absolute top-0 right-0 p-stack-sm opacity-20">
+<span class="material-symbols-outlined text-[64px]" data-icon="verified">verified</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-label-caps text-label-caps text-secondary mb-stack-sm">IMMUTABILITY INDEX</h3>
+<div class="font-display-lg text-headline-md text-on-surface">99.9%</div>
+<div class="mt-stack-md text-data-mono text-[12px] text-on-surface-variant">LATEST BLOCK: #8,442,109</div>
+</div>
+</div>
+<div class="bg-surface-container border-4 border-secondary p-gutter relative overflow-hidden">
+<div class="absolute top-0 right-0 p-stack-sm opacity-20">
+<span class="material-symbols-outlined text-[64px]" data-icon="lock">lock</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-label-caps text-label-caps text-secondary mb-stack-sm">ENCRYPTION STATUS</h3>
+<div class="font-display-lg text-headline-md text-on-surface">QUANTUM-RES</div>
+<div class="mt-stack-md text-data-mono text-[12px] text-primary">AES-512-Q BIT-RATE</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar Shell (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-surface border-t-4 border-secondary">
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-caps text-[10px]">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container border-2 border-primary px-2 py-1 scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-label-caps text-[10px]">Logs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-label-caps text-[10px]">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-label-caps text-[10px]">Legal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-70" href="#">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+<span class="font-label-caps text-[10px]">Assets</span>
+</a>
+</nav>
+</body></html>

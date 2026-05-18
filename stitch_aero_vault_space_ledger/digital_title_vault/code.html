@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AERO-VAULT | Digital Title Registry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #131316;
+            color: #e5e1e5;
+        }
+        /* Custom scrollbar for industrial feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #131316; }
+        ::-webkit-scrollbar-thumb { background: #464746; border: 2px solid #131316; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#42436b",
+                      "on-error": "#690005",
+                      "on-secondary-container": "#b5b5b3",
+                      "primary-fixed-dim": "#c2c2f2",
+                      "on-background": "#e5e1e5",
+                      "outline-variant": "#47464e",
+                      "surface-container": "#201f22",
+                      "on-secondary-fixed": "#1b1c1b",
+                      "surface-container-low": "#1c1b1e",
+                      "primary-fixed": "#e1e0ff",
+                      "surface-variant": "#353437",
+                      "tertiary-fixed-dim": "#c6c6c6",
+                      "on-surface": "#e5e1e5",
+                      "surface": "#131316",
+                      "surface-container-lowest": "#0e0e11",
+                      "error": "#ffb4ab",
+                      "surface-container-highest": "#353437",
+                      "secondary-fixed-dim": "#c7c6c4",
+                      "on-tertiary-container": "#878787",
+                      "inverse-on-surface": "#313033",
+                      "on-primary-fixed": "#16173d",
+                      "on-tertiary": "#303030",
+                      "secondary": "#c7c6c4",
+                      "surface-tint": "#c2c2f2",
+                      "background": "#131316",
+                      "tertiary-fixed": "#e2e2e2",
+                      "on-primary": "#2b2d53",
+                      "inverse-surface": "#e5e1e5",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#1b1b1b",
+                      "outline": "#918f99",
+                      "on-surface-variant": "#c8c5cf",
+                      "error-container": "#93000a",
+                      "primary-container": "#1a1b41",
+                      "surface-container-high": "#2a292d",
+                      "on-secondary": "#303130",
+                      "secondary-fixed": "#e3e2e0",
+                      "on-secondary-fixed-variant": "#464746",
+                      "tertiary": "#c6c6c6",
+                      "on-primary-container": "#8283af",
+                      "tertiary-container": "#1f1f1f",
+                      "surface-bright": "#3a393c",
+                      "inverse-primary": "#5a5b84",
+                      "primary": "#c2c2f2",
+                      "secondary-container": "#464746",
+                      "on-tertiary-fixed-variant": "#474747",
+                      "surface-dim": "#131316"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "stack-lg": "32px",
+                      "stack-md": "16px",
+                      "container-max": "1440px",
+                      "margin": "32px",
+                      "stack-sm": "8px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "label-caps": ["JetBrains Mono"],
+                      "body-md": ["Inter"],
+                      "data-mono": ["JetBrains Mono"],
+                      "body-lg": ["Inter"],
+                      "headline-sm": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "label-caps": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface border-b-4 border-secondary flex justify-between items-center w-full px-gutter h-16 fixed top-0 z-50">
+<div class="flex items-center gap-unit">
+<span class="material-symbols-outlined text-primary" data-icon="shield_lock">shield_lock</span>
+<h1 class="text-headline-sm font-headline-sm font-bold tracking-tighter text-primary uppercase">AERO-VAULT</h1>
+</div>
+<div class="flex items-center gap-stack-md">
+<nav class="hidden md:flex gap-gutter">
+<a class="text-primary font-bold transition-transform active:translate-y-0.5 font-label-caps text-label-caps" href="#">Vault</a>
+<a class="text-on-surface-variant hover:bg-secondary-container dark:hover:bg-secondary-container px-2 py-1 font-label-caps text-label-caps" href="#">Logs</a>
+<a class="text-on-surface-variant hover:bg-secondary-container dark:hover:bg-secondary-container px-2 py-1 font-label-caps text-label-caps" href="#">Assets</a>
+</nav>
+<div class="h-10 w-10 border-2 border-secondary bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img alt="Security Officer Profile" class="w-full h-full object-cover" data-alt="A high-contrast profile avatar of a security officer in a futuristic aerospace uniform. The image uses a palette of deep indigo and platinum silver with clean, sharp geometric edges. The lighting is dramatic and technical, emphasizing the professional and high-security nature of the character within a dark-mode interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsn-vI2OqJoc180E-6hTHQwVvUH7wtEm91whykj2v-ZeAFOi0GfD_xSa23Znzbuum00whLpLUPEMTI4SxBFQeo38_aKIGEGp5vADZ7Og0bFIHp11atjZE_AXPSfussTI-GXxbF2AlcSwC9CQFJFVVxp2iytApavnZyj4KGJk-WzPQpNVoR1YqHFFtF2avfB0LlK0v0xfoZOM4jxDx3ut6Mn6c6ZUaSTsSxk8OiPMT7I0nZqnddTaYYIwe-EwKaxmPcpiqnawVneFo"/>
+</div>
+</div>
+</header>
+<div class="flex pt-16 min-h-screen">
+<!-- NavigationDrawer (Sidebar Desktop) -->
+<aside class="hidden lg:flex fixed inset-y-0 left-0 pt-16 z-40 flex-col gap-unit w-80 bg-surface-container-low dark:bg-surface-container-low border-r-4 border-secondary">
+<div class="p-gutter border-b-2 border-outline-variant">
+<div class="flex items-center gap-stack-sm">
+<div class="w-12 h-12 bg-primary-container border-2 border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">fingerprint</span>
+</div>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">OPERATOR_042</div>
+<div class="font-data-mono text-data-mono text-primary">STATION: LEO-01</div>
+</div>
+</div>
+</div>
+<nav class="p-stack-sm flex flex-col gap-unit">
+<a class="flex items-center gap-stack-md p-stack-md bg-secondary-container text-on-secondary-container font-bold border-l-4 border-primary opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-caps text-label-caps uppercase">Security Audit</span>
+</a>
+<a class="flex items-center gap-stack-md p-stack-md text-on-surface hover:bg-surface-bright transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+<span class="font-label-caps text-label-caps uppercase">Fleet Registry</span>
+</a>
+<a class="flex items-center gap-stack-md p-stack-md text-on-surface hover:bg-surface-bright transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+<span class="font-label-caps text-label-caps uppercase">Jurisdiction Map</span>
+</a>
+<a class="flex items-center gap-stack-md p-stack-md text-on-surface hover:bg-surface-bright transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+<span class="font-label-caps text-label-caps uppercase">Terminal Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-80 px-margin py-stack-lg pb-32">
+<!-- Hero / Biometric Unlock Prompt -->
+<section class="mb-stack-lg bg-primary-container border-4 border-secondary p-gutter relative overflow-hidden">
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="max-w-2xl">
+<h2 class="font-display-lg text-display-lg text-on-primary-container mb-unit uppercase">Vault Status: Locked</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-md">System is currently in read-only mode. Provide Level-1 Biometric authentication to access Title transfer functions.</p>
+<div class="flex gap-stack-sm">
+<button class="bg-primary text-on-primary px-stack-md py-stack-sm border-2 border-secondary font-label-caps text-label-caps uppercase hover:bg-on-primary transition-all flex items-center gap-unit">
+<span class="material-symbols-outlined text-[18px]">fingerprint</span>
+                                Biometric Unlock
+                            </button>
+<button class="bg-surface text-secondary px-stack-md py-stack-sm border-4 border-secondary font-label-caps text-label-caps uppercase hover:bg-secondary hover:text-surface transition-all">
+                                Request Access
+                            </button>
+</div>
+</div>
+<div class="hidden md:block">
+<span class="material-symbols-outlined text-[120px] text-on-primary-container opacity-20" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+</div>
+<!-- Industrial Background Pattern -->
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#c2c2f2 1px, transparent 1px); background-size: 20px 20px;"></div>
+</section>
+<!-- Section Header -->
+<div class="flex justify-between items-end border-b-4 border-secondary pb-unit mb-stack-md">
+<h3 class="font-headline-md text-headline-md uppercase text-primary">Active Asset Registry</h3>
+<span class="font-data-mono text-data-mono text-on-surface-variant mb-unit">DB_REF: 8829-XJ-VLT</span>
+</div>
+<!-- Bento Grid of Assets -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Asset Card 1: Spacecraft Part -->
+<div class="group border-4 border-secondary bg-surface-container-lowest p-unit flex flex-col hover:border-primary transition-colors">
+<div class="relative h-48 w-full bg-surface-container overflow-hidden">
+<img alt="Ion Thruster Assembly" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" data-alt="A high-tech aerospace component, specifically an ion thruster core, presented in an industrial warehouse setting. The lighting is cold, technical, and utilizes deep indigo shadows and bright platinum highlights. The metallic surfaces are crisp and detailed, reflecting a brutalist and secure engineering aesthetic. The overall mood is precise and high-security." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoyo-uwNax-QrKe2IwMurMWhOz4qugSLiLZTT4iyA4s9AItMJ0mGPHL9DmK8dfCu-FacRGxjy8MQrLmBSwUPGKX4VbK5mNwEJXQlklg84m2qsXgDKiY8EaILjJ6smnSVV2GItobhrJhB67YQFc-sCdwdygF4KVhTj48AzD8StG4g83ePNAkDPvIg2EU05G084CHaWw6e7MieOdRhD002KRr1NlEeyUiemcb74mB_6pCP5zeiGIwDNioknbEQmpEn6D0Bhj_oTGU94"/>
+<div class="absolute top-unit left-unit bg-primary-container border-2 border-primary px-2 py-1 flex items-center gap-unit">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] text-primary uppercase">Verified</span>
+</div>
+</div>
+<div class="p-stack-sm flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-unit">
+<h4 class="font-headline-sm text-headline-sm text-on-surface uppercase">Ion Thruster Core</h4>
+<span class="font-data-mono text-data-mono text-outline">X-882</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-stack-md flex-1">Primary propulsion unit title for Fleet Alpha. Soulbound NFT ID: #0081-992-TX.</p>
+<div class="border-t-2 border-outline-variant pt-stack-sm flex justify-between items-center">
+<div class="text-[10px] font-data-mono text-outline-variant uppercase">Owner: AERO-CORP</div>
+<span class="material-symbols-outlined text-secondary" data-icon="workspace_premium">workspace_premium</span>
+</div>
+</div>
+</div>
+<!-- Asset Card 2: Mineral Rights -->
+<div class="group border-4 border-secondary bg-surface-container-lowest p-unit flex flex-col hover:border-primary transition-colors">
+<div class="relative h-48 w-full bg-surface-container overflow-hidden">
+<img alt="Asteroid Mining Site" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" data-alt="A panoramic view of a rugged, crystalline asteroid surface in deep space, illuminated by the harsh, distant light of a cold star. The color palette focuses on deep indigo space and platinum silver minerals. The scene is technical and desolate, conveying the immense value of space-based mineral rights in a hardened industrial UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-82KbHGgngPVM3kEnce6XjYb4Y_aiZqrhjbM3lsR788q5zS81tu8-yEH_el6DWkQVj2asXBiww4yrVZHt9PcFlOooC7nXPIritgX72hR7-1QAqfvBGTrL3su4vf7e_PrT_DRefUuFx7f_x0pU2jCGW1nkQXa_-sMWl-Ssl7uOJJOC4itu87eJUTm_43X87YcUnkW3PP2qwYszHYmZfzU22gER9TixdynUtpfO6poC2q61tDeBEIBu_FWDAT5Gjnsaw-QatL2G_40"/>
+<div class="absolute top-unit left-unit bg-primary-container border-2 border-primary px-2 py-1 flex items-center gap-unit">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] text-primary uppercase">Verified</span>
+</div>
+</div>
+<div class="p-stack-sm flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-unit">
+<h4 class="font-headline-sm text-headline-sm text-on-surface uppercase">Asteroid M-421</h4>
+<span class="font-data-mono text-data-mono text-outline">MIN-04</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-stack-md flex-1">Exclusive mineral extraction rights for the Hestia Quadrant. Permanent Title Lock.</p>
+<div class="border-t-2 border-outline-variant pt-stack-sm flex justify-between items-center">
+<div class="text-[10px] font-data-mono text-outline-variant uppercase">Jurisdiction: LUNA-9</div>
+<span class="material-symbols-outlined text-secondary" data-icon="gavel">gavel</span>
+</div>
+</div>
+</div>
+<!-- Asset Card 3: Comm Terminal -->
+<div class="group border-4 border-secondary bg-surface-container-lowest p-unit flex flex-col hover:border-primary transition-colors">
+<div class="relative h-48 w-full bg-surface-container overflow-hidden">
+<img alt="Satellite Relay" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" data-alt="A complex satellite communications relay orbiting a planet, with intricate antennae and data panels visible. The lighting is high-key and technical, with a focus on metallic textures and blue-tinted shadows. The image reflects the uncompromising and precise aesthetic of a high-tech orbital network within a brutalist design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVB7O3HV3dKdrWfxhM13-G8uY9_gspe3uAUg0Fz702c0rJ9HFNfQFKHm2i2-TWTHI9vGYtakeXDBjEkUYjW3160fhe1YEFxaCJEmatziYnbnNH1eT3-1NGjluPMxBV1sf9RS9I76IQM-m3lYELJ7yKRv1vvDd-YEewmQj8kDFN34M4fCLIPDrO2Ga8aEmDSKK92YO31NIrCM1QG7dh3dyRrtK8k0Gtrqpe19YL8XDWhmpqfhQ7C7kFTiCojNWFjdZrGXcwGayixkA"/>
+<div class="absolute top-unit left-unit bg-primary-container border-2 border-primary px-2 py-1 flex items-center gap-unit">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] text-primary uppercase">Verified</span>
+</div>
+</div>
+<div class="p-stack-sm flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-unit">
+<h4 class="font-headline-sm text-headline-sm text-on-surface uppercase">Relay Terminal 09</h4>
+<span class="font-data-mono text-data-mono text-outline">COM-RLY</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-stack-md flex-1">Strategic communication node ownership. Validated by Blockchain Consensus.</p>
+<div class="border-t-2 border-outline-variant pt-stack-sm flex justify-between items-center">
+<div class="text-[10px] font-data-mono text-outline-variant uppercase">Band: ULTRA-HIGH</div>
+<span class="material-symbols-outlined text-secondary" data-icon="public">public</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Transaction Logs (Technical Detail) -->
+<div class="mt-stack-lg border-4 border-secondary overflow-hidden">
+<div class="bg-secondary-container p-stack-sm flex justify-between items-center">
+<h5 class="font-label-caps text-label-caps text-on-secondary-container uppercase">Live Immutable Event Logs</h5>
+<span class="material-symbols-outlined text-[16px] text-on-secondary-container">history_edu</span>
+</div>
+<div class="divide-y-2 divide-outline-variant">
+<div class="bg-surface-container-low p-stack-sm grid grid-cols-4 font-data-mono text-[12px] text-on-surface">
+<span class="text-primary">[ 08:44:21 ]</span>
+<span class="font-bold">TITLE_LOCK</span>
+<span class="text-on-surface-variant">ID: X-882-00</span>
+<span class="text-right text-outline">STATUS: SUCCESS</span>
+</div>
+<div class="bg-surface-container p-stack-sm grid grid-cols-4 font-data-mono text-[12px] text-on-surface">
+<span class="text-primary">[ 08:32:04 ]</span>
+<span class="font-bold">AUDIT_SYNC</span>
+<span class="text-on-surface-variant">NODE: LEO-01</span>
+<span class="text-right text-outline">STATUS: VERIFIED</span>
+</div>
+<div class="bg-surface-container-low p-stack-sm grid grid-cols-4 font-data-mono text-[12px] text-on-surface">
+<span class="text-primary">[ 07:15:55 ]</span>
+<span class="font-bold">AUTH_FAIL</span>
+<span class="text-on-surface-variant">USER: UNKNOWN</span>
+<span class="text-right text-error font-bold">STATUS: REJECTED</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-surface border-t-4 border-secondary">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container border-2 border-primary px-2 py-1 scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-caps text-label-caps uppercase">Vault</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-label-caps text-label-caps uppercase">Logs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-label-caps text-label-caps uppercase">Scan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-label-caps text-label-caps uppercase">Legal</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+<span class="font-label-caps text-label-caps uppercase">Assets</span>
+</div>
+</nav>
+<!-- Contextual FAB (Only on main dashboard screens) -->
+<button class="fixed bottom-24 right-8 md:bottom-8 md:right-8 w-16 h-16 bg-primary text-on-primary border-4 border-secondary flex items-center justify-center shadow-2xl hover:scale-105 transition-transform z-50">
+<span class="material-symbols-outlined text-[32px]">qr_code_scanner</span>
+</button>
+</body></html>
